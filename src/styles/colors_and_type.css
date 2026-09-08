@@ -1,0 +1,336 @@
+/* ============================================================================
+   PRODUTTORI ARBOREA — Design System
+   Fondamenta: colore, tipografia, spazio, griglia.
+
+   I valori marcati ◆ vengono dal brandbook ufficiale (Minsait Xtudio, 46 pp.):
+   non si toccano. Tutto il resto è derivato per gli usi che il brandbook
+   non copre — stati, bordi, fondi tenui dell'interfaccia.
+
+   Fonte di verità dei token. Specchio JS in ../tokens.ts
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500&display=swap');
+
+:root {
+  /* ============================================== MAIN PALETTE — brandbook 4.1
+     Dodici colori con nome proprio. La palette principale accoglie tutta
+     la gamma dei brand: ortofrutta, carni, agrozootecnia. */
+
+  --pa-arancio:   #F18700;  /* ◆ cmyk 0,55,100,0   */
+  --pa-foglia:    #95C11F;  /* ◆ cmyk 50,0,100,0   */
+  --pa-oro:       #D7B46A;  /* ◆ cmyk 0,20,60,20   */
+  --pa-pomodoro:  #D20A11;  /* ◆ cmyk 0,100,100,10 */
+  --pa-notte:     #000E1E;  /* ◆ cmyk 100,60,30,90 */
+  --pa-legno:     #3A2828;  /* ◆ cmyk 60,70,60,70  */
+  --pa-ferro:     #535A60;  /* ◆ cmyk 30,15,10,70  */
+  --pa-argento:   #B6C0C6;  /* ◆ cmyk 10,0,0,30    */
+  --pa-sabbia:    #FFF7F1;  /* ◆ cmyk 0,4,6,0      */
+  --pa-campagna:  #004928;  /* ◆ cmyk 100,50,100,40 */
+  --pa-melanzana: #581D53;  /* ◆ cmyk 70,100,30,30 */
+  --pa-carne:     #8D1926;  /* ◆ cmyk 30,100,80,30 */
+
+  /* Oro e argento, in applicazioni eccezionali, possono diventare tinte
+     metalliche o lamine: da valutare sui contrasti reali del materiale. */
+
+  /* ---------------------------------------------- DERIVATI (non da brandbook)
+     Servono all'interfaccia: fondi tenui, bordi, stati hover. Restano
+     riconoscibilmente dentro la famiglia del colore da cui nascono. */
+
+  --pa-campagna-scuro: #002E19;
+  --pa-campagna-tenue: #E4EDE8;
+  --pa-campagna-bordo: #B3C8BD;
+
+  --pa-foglia-scuro: #75991A;
+  --pa-foglia-tenue: #EDF5DC;
+  --pa-foglia-bordo: #CFE39F;
+
+  --pa-arancio-scuro: #D06F00;
+  --pa-arancio-tenue: #FDEEDC;
+
+  --pa-pomodoro-scuro: #A80810;
+  --pa-carne-scuro:    #6B121C;
+  --pa-carne-tenue:    #F6E7E7;
+  --pa-carne-bordo:    #DDB6B8;
+
+  --pa-oro-scuro: #A9873F;
+  --pa-oro-tenue: #FAF0DE;
+  --pa-oro-bordo: #E8D3AA;
+
+  --pa-melanzana-scuro: #3F1439;
+
+  --pa-sabbia-piu:  #FFFBF8;
+  --pa-bianco:      #FFFFFF;
+  --pa-grigio-100:  #F4F0EC;
+  --pa-grigio-200:  #E5DFD9;
+  --pa-grigio-400:  #A9A29B;
+  --pa-grigio-600:  #6B645D;
+
+  /* ------------------------------------------------- TOKEN SEMANTICI (tema)
+     I componenti si agganciano SOLO a questi. Un tema di brand rimappa
+     questi e nient'altro: zero override per-componente. */
+
+  --pa-accent:        var(--pa-campagna);
+  --pa-accent-strong: var(--pa-campagna-scuro);
+  --pa-accent-soft:   var(--pa-campagna-tenue);
+  --pa-accent-border: var(--pa-campagna-bordo);
+  --pa-accent-on:     var(--pa-sabbia);
+
+  --pa-pop:        var(--pa-oro);        /* secondario / evidenza */
+  --pa-pop-strong: var(--pa-oro-scuro);
+  --pa-pop-on:     var(--pa-campagna);
+
+  --pa-bg:      var(--pa-sabbia);        /* il fondo del brand, non il bianco */
+  --pa-bg-alt:  var(--pa-bianco);
+  --pa-bg-dark: var(--pa-campagna);
+  --pa-surface: var(--pa-bianco);
+  --pa-border:  var(--pa-grigio-200);
+
+  --pa-fg:       var(--pa-notte);
+  --pa-fg-soft:  var(--pa-grigio-600);
+  --pa-fg-muted: var(--pa-grigio-400);
+  --pa-on-dark:        var(--pa-sabbia);
+  --pa-on-dark-muted:  var(--pa-argento);
+  --pa-on-dark-accent: var(--pa-oro);
+
+  /* Colori dato — serie dei grafici, in ordine di lettura */
+  --pa-data-1: var(--pa-campagna);
+  --pa-data-2: var(--pa-foglia);
+  --pa-data-3: var(--pa-arancio);
+  --pa-data-4: var(--pa-oro);
+  --pa-data-5: var(--pa-carne);
+  --pa-data-6: var(--pa-melanzana);
+
+  /* ================================================ TIPOGRAFIA — brandbook 3
+     Fredoka per i titoli, Roboto Flex per il testo. La divisione è netta. */
+
+  --pa-font-display: 'Fredoka', 'Trebuchet MS', system-ui, sans-serif;   /* ◆ */
+  --pa-font-text: 'Roboto Flex', 'Roboto', system-ui, -apple-system, sans-serif; /* ◆ */
+
+  /* Gerarchia modulare del brandbook (3.3): header = X, sub header = X/2,
+     call to action = X/3, corpo = X/4, label = X/6.
+     Interlinea 1,2 ovunque tranne la CTA, che è 1,0. */
+  --pa-scala: clamp(2.5rem, 1.2rem + 5.2vw, 4.5rem);   /* X — 40 → 72 px */
+
+  --pa-fs-header: var(--pa-scala);
+  --pa-fs-sub:    calc(var(--pa-scala) / 2);
+  --pa-fs-cta:    calc(var(--pa-scala) / 3);
+  --pa-fs-body:   max(1rem, calc(var(--pa-scala) / 4));
+  --pa-fs-label:  max(0.75rem, calc(var(--pa-scala) / 6));
+
+  --pa-lh-titolo: 1.2;   /* ◆ 180/150 = 90/75 = 1,2 */
+  --pa-lh-body:   1.2;   /* ◆ 45/37,5 = 1,2 — nei testi lunghi si allarga a 1,5 */
+  --pa-lh-lettura: 1.55;
+  --pa-lh-cta:    1;     /* ◆ 50/50 */
+
+  --pa-ls-label: 0.08em;
+
+  /* ---------------------------------------------------------------- SPAZIO */
+  --pa-space-xxs: 4px;
+  --pa-space-xs:  8px;
+  --pa-space-s:   12px;
+  --pa-space-m:   16px;
+  --pa-space-l:   24px;
+  --pa-space-xl:  32px;
+  --pa-space-2xl: 48px;
+  --pa-space-3xl: 64px;
+  --pa-space-4xl: 96px;
+
+  /* -------------------------------------------------------- RAGGI & OMBRE
+     Il marchio è costruito su terminali tondi: le superfici seguono. */
+  --pa-radius-xs: 4px;
+  --pa-radius-s:  8px;
+  --pa-radius-m:  16px;
+  --pa-radius-l:  24px;
+  --pa-radius-xl: 40px;
+  --pa-radius-pill: 999px;
+  /* La forma firma: quadrato con tre angoli pieni e uno vivo, la stessa
+     geometria dell'icona "foglia". */
+  --pa-radius-seme: 50% 50% 50% 0;
+
+  --pa-shadow-s: 0 1px 2px rgba(0,14,30,.06), 0 1px 3px rgba(0,14,30,.08);
+  --pa-shadow-m: 0 4px 10px rgba(0,14,30,.07), 0 2px 4px rgba(0,14,30,.06);
+  --pa-shadow-l: 0 14px 30px rgba(0,14,30,.10), 0 6px 12px rgba(0,14,30,.06);
+
+  /* --------------------------------------------------------------- GRIGLIA */
+  --pa-grid-max: 1280px;
+  --pa-grid-cols: 12;
+  --pa-grid-gutter: 24px;
+  --pa-grid-margin: 32px;
+
+  /* ------------------------------------------------- MISURE MINIME — ◆ 1.2-1.4
+     Sotto queste, il segno non si decodifica più. */
+  --pa-logo-min-glifo: 30px;    /* ◆ digital 10×30 px  — stampa 4 × 10 mm */
+  --pa-logo-min-wordmark: 51px; /* ◆ digital 51×21 px  — stampa 18 × 7,3 mm */
+  --pa-logo-min-cerchio: 30px;  /* ◆ digital 30×30 px  — stampa 20 × 20 mm */
+  --pa-endorser-ratio: 5;       /* ◆ wordmark di segmento : endorser = 5 : 1 */
+}
+
+/* ================================================================== TEMI ==
+   Un tema per segmento. I nomi seguono il brandbook (ortofrutta, carni,
+   agrozoo); gli alias con il nome commerciale sono lì per comodità. */
+
+.theme-ortofrutta, .theme-primoverde {
+  /* ◆ 4.2 — «I due verdi fondamentali, uno fresco e allegro, l'altro più
+     scuro e consistente». Il verde è il protagonista; arancio, pomodoro,
+     oro e melanzana sono i contrasti ammessi. */
+  --pa-accent:        var(--pa-foglia);
+  --pa-accent-strong: var(--pa-foglia-scuro);
+  --pa-accent-soft:   var(--pa-foglia-tenue);
+  --pa-accent-border: var(--pa-foglia-bordo);
+  --pa-accent-on:     var(--pa-notte);
+
+  --pa-pop:        var(--pa-arancio);
+  --pa-pop-strong: var(--pa-arancio-scuro);
+  --pa-pop-on:     var(--pa-bianco);
+
+  --pa-bg-dark:        var(--pa-campagna);
+  --pa-on-dark-accent: var(--pa-foglia);
+  --pa-on-dark-muted:  var(--pa-foglia-bordo);
+
+  --pa-data-1: var(--pa-foglia);
+  --pa-data-2: var(--pa-campagna);
+  --pa-data-3: var(--pa-arancio);
+  --pa-data-4: var(--pa-pomodoro);
+  --pa-data-5: var(--pa-oro);
+  --pa-data-6: var(--pa-melanzana);
+}
+
+.theme-carni, .theme-rossopregio {
+  /* ◆ 4.3 — «I due rossi fondamentali, uno vivo e intenso, l'altro più scuro
+     e consistente», accostati a oro, argento, legno o neutri. */
+  --pa-accent:        var(--pa-carne);
+  --pa-accent-strong: var(--pa-carne-scuro);
+  --pa-accent-soft:   var(--pa-carne-tenue);
+  --pa-accent-border: var(--pa-carne-bordo);
+  --pa-accent-on:     var(--pa-sabbia);
+
+  --pa-pop:        var(--pa-oro);
+  --pa-pop-strong: var(--pa-oro-scuro);
+  --pa-pop-on:     var(--pa-carne-scuro);
+
+  --pa-bg-dark:        var(--pa-carne);
+  --pa-on-dark-accent: var(--pa-oro);
+  --pa-on-dark-muted:  var(--pa-argento);
+
+  --pa-data-1: var(--pa-carne);
+  --pa-data-2: var(--pa-pomodoro);
+  --pa-data-3: var(--pa-oro);
+  --pa-data-4: var(--pa-argento);
+  --pa-data-5: var(--pa-legno);
+  --pa-data-6: var(--pa-ferro);
+}
+
+.theme-agrozoo, .theme-meridoro {
+  /* ◆ 4.4 — L'oro è il protagonista, accostato a toni naturali e concreti
+     per contrasti caldi e incisivi. */
+  --pa-accent:        var(--pa-oro);
+  --pa-accent-strong: var(--pa-oro-scuro);
+  --pa-accent-soft:   var(--pa-oro-tenue);
+  --pa-accent-border: var(--pa-oro-bordo);
+  --pa-accent-on:     var(--pa-notte);
+
+  --pa-pop:        var(--pa-carne);
+  --pa-pop-strong: var(--pa-carne-scuro);
+  --pa-pop-on:     var(--pa-sabbia);
+
+  /* Il fondo pieno dell'agrozoo è campagna, non carne: è quello che usano
+     gli stand e i materiali di fiera, ed è nella palette 4.4. Il carne resta
+     il secondario di evidenza. */
+  --pa-bg-dark:        var(--pa-campagna);
+  --pa-on-dark-accent: var(--pa-oro);
+  --pa-on-dark-muted:  var(--pa-oro-bordo);
+
+  --pa-data-1: var(--pa-oro);
+  --pa-data-2: var(--pa-carne);
+  --pa-data-3: var(--pa-campagna);
+  --pa-data-4: var(--pa-ferro);
+  --pa-data-5: var(--pa-legno);
+  --pa-data-6: var(--pa-argento);
+}
+
+/* ============================================================ BASE / TIPO */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--pa-bg);
+  color: var(--pa-fg);
+  font-family: var(--pa-font-text);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: var(--pa-lh-lettura);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .pa-header-txt {
+  font-family: var(--pa-font-display);
+  font-weight: 500;                    /* ◆ Fredoka medium */
+  line-height: var(--pa-lh-titolo);
+  color: var(--pa-accent);
+  margin: 0 0 var(--pa-space-m);
+  text-wrap: balance;
+}
+
+.pa-header-txt, h1 { font-size: var(--pa-fs-header); }
+h2 { font-size: var(--pa-fs-sub); }
+h3 { font-size: calc(var(--pa-scala) / 2.8); }
+h4 { font-size: calc(var(--pa-scala) / 3.6); }
+
+p { margin: 0 0 var(--pa-space-m); color: var(--pa-fg-soft); max-width: 68ch; }
+.pa-lead { font-size: var(--pa-fs-body); color: var(--pa-fg); }
+.pa-label {                             /* ◆ label / details */
+  font-family: var(--pa-font-text); font-weight: 500;
+  font-size: var(--pa-fs-label); line-height: 1.2;
+  letter-spacing: var(--pa-ls-label); text-transform: uppercase;
+  color: var(--pa-fg-muted);
+}
+.pa-caption { font-size: 0.8125rem; color: var(--pa-fg-muted); }
+.pa-small { font-size: 0.875rem; }
+
+a { color: var(--pa-accent); text-underline-offset: 2px; }
+
+/* Call to action: Fredoka medium, sempre sottolineata. ◆ 3.3 */
+.pa-cta {
+  display: inline-block;
+  font-family: var(--pa-font-display); font-weight: 500;
+  font-size: var(--pa-fs-cta); line-height: var(--pa-lh-cta);
+  color: var(--pa-accent); text-decoration: none;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: var(--pa-space-xxs);
+}
+.pa-cta:hover { color: var(--pa-accent-strong); }
+
+/* Titolo di prodotto: maiuscolo, con una tinta che cambia da prodotto
+   a prodotto pescando nella palette del segmento. */
+.pa-title-prodotto {
+  font-family: var(--pa-font-display); font-weight: 500;
+  font-size: var(--pa-fs-sub); line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--pa-tint, var(--pa-accent));
+  margin: 0 0 var(--pa-space-s);
+}
+
+/* ============================================================== GRIGLIA */
+
+.pa-container {
+  width: 100%; max-width: var(--pa-grid-max);
+  margin-inline: auto; padding-inline: var(--pa-grid-margin);
+}
+
+.pa-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--pa-grid-cols), minmax(0, 1fr));
+  gap: var(--pa-grid-gutter);
+}
+.pa-col-1{grid-column:span 1}.pa-col-2{grid-column:span 2}.pa-col-3{grid-column:span 3}
+.pa-col-4{grid-column:span 4}.pa-col-5{grid-column:span 5}.pa-col-6{grid-column:span 6}
+.pa-col-7{grid-column:span 7}.pa-col-8{grid-column:span 8}.pa-col-9{grid-column:span 9}
+.pa-col-10{grid-column:span 10}.pa-col-11{grid-column:span 11}.pa-col-12{grid-column:span 12}
+
+/* La griglia segue l'AREA, non la finestra: serve `container-type: inline-size`
+   sul contenitore (obbligatorio nei layout con barra laterale). */
+@container (max-width: 1024px) { .pa-grid { --pa-grid-cols: 8 } .pa-col-m-4{grid-column:span 4}.pa-col-m-8{grid-column:span 8} }
+@container (max-width: 720px)  { .pa-grid { --pa-grid-cols: 4 } .pa-col-s-2{grid-column:span 2}.pa-col-s-4{grid-column:span 4} }
+@media (max-width: 1024px) { .pa-grid { --pa-grid-cols: 8 } [class*="pa-col-"]{grid-column:span 4} .pa-col-m-8{grid-column:span 8} }
+@media (max-width: 720px)  { .pa-grid { --pa-grid-cols: 4 } [class*="pa-col-"]{grid-column:span 4} :root{--pa-grid-margin:20px} }

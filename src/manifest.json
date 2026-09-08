@@ -1,0 +1,73 @@
+{
+  "loghi": [
+    "meridoro",
+    "primoverde",
+    "primoverde-foglia",
+    "produttori-arborea",
+    "produttori-arborea-cerchio",
+    "produttori-arborea-glifo",
+    "rossopregio"
+  ],
+  "icone": [
+    "agrume-sezione",
+    "arancia",
+    "carota",
+    "ciliegie",
+    "foglia",
+    "foglia-contorno",
+    "fragola",
+    "nocciola",
+    "oliva-anello",
+    "patata",
+    "pera",
+    "pomodoro",
+    "prugna",
+    "semi",
+    "susina",
+    "uva"
+  ],
+  "texture": [
+    "icone-agrozoo",
+    "icone-fitta",
+    "icone-ortofrutta",
+    "icone-rada"
+  ],
+  "illustrazioni": {
+    "ortofrutta": [
+      "angurie",
+      "angurie-2",
+      "angurie-3",
+      "carota",
+      "cavolfiore",
+      "cavolfiore-2",
+      "cavolfiore-3",
+      "finocchi",
+      "fragola",
+      "funghi-champignon",
+      "iceberg",
+      "indivia-riccia",
+      "melanzane",
+      "melone",
+      "patata-buccia",
+      "patate",
+      "patate-2",
+      "pomodori",
+      "pomodori-2",
+      "prezzemolo",
+      "radicchio",
+      "rucola",
+      "scarola",
+      "zucchina"
+    ],
+    "animali": [
+      "avicoli",
+      "bovino",
+      "bovino-latte",
+      "caprino",
+      "equino",
+      "limousine",
+      "ovino",
+      "suino"
+    ]
+  }
+}

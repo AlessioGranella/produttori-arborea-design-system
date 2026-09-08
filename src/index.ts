@@ -1,0 +1,10 @@
+export * from './tokens';
+export { Bottone } from './components/Bottone';
+export { Chip } from './components/Chip';
+export { Numero } from './components/Numero';
+export { SchedaProdotto } from './components/SchedaProdotto';
+export { Illustrazione } from './components/Illustrazione';
+export { Logo } from './components/Logo';
+export { Footer } from './components/Footer';
+export { Lockup } from './components/Lockup';
+export { IconaIllustrazione } from './components/IconaIllustrazione';

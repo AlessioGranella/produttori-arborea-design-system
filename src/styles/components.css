@@ -1,0 +1,169 @@
+/* ============================================================================
+   PRODUTTORI ARBOREA — Componenti
+   Regola: solo token semantici (--pa-accent / -pop / -bg / -fg…), mai i colori
+   della main palette in chiaro. Così ogni componente si tematizza sotto
+   .theme-ortofrutta / .theme-carni / .theme-agrozoo senza un solo override.
+   Spaziature: sempre var(--pa-space-*), mai px a mano.
+   ========================================================================== */
+
+/* --------------------------------------------------------------- BOTTONI */
+.pa-btn {
+  display: inline-flex; align-items: center; gap: var(--pa-space-xs);
+  font-family: var(--pa-font-display); font-weight: 500; font-size: 1rem;
+  padding: var(--pa-space-s) var(--pa-space-l);
+  border-radius: var(--pa-radius-pill);
+  border: 1.5px solid transparent;
+  background: var(--pa-accent); color: var(--pa-accent-on);
+  cursor: pointer; text-decoration: none;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.pa-btn:hover { background: var(--pa-accent-strong); color: var(--pa-sabbia); }
+.pa-btn--secondary { background: transparent; color: var(--pa-accent); border-color: var(--pa-accent); }
+.pa-btn--secondary:hover { background: var(--pa-accent-soft); color: var(--pa-accent-strong); }
+.pa-btn--pop { background: var(--pa-pop); color: var(--pa-pop-on); }
+.pa-btn--pop:hover { background: var(--pa-pop-strong); }
+.pa-btn--inverse { background: var(--pa-sabbia); color: var(--pa-accent); }
+.pa-btn--inverse:hover { background: var(--pa-bianco); color: var(--pa-accent-strong); }
+.pa-btn--s { padding: var(--pa-space-xs) var(--pa-space-m); font-size: 0.875rem; }
+
+/* ------------------------------------------------------------ CHIP / TAG */
+/* Solo testo: mai icone, mai frecce. Sopra un titolo fa da kicker. */
+.pa-chip {
+  display: inline-block;
+  font-family: var(--pa-font-text); font-weight: 500;
+  font-size: 0.8125rem; letter-spacing: var(--pa-ls-label);
+  text-transform: uppercase; line-height: 1.4;
+  padding: var(--pa-space-xxs) var(--pa-space-s);
+  border-radius: var(--pa-radius-pill);
+  background: var(--pa-accent-soft); color: var(--pa-accent-strong);
+}
+.pa-chip--pop { background: var(--pa-pop); color: var(--pa-pop-on); }
+.pa-chip--outline { background: transparent; border: 1px solid var(--pa-accent-border); color: var(--pa-accent); }
+.pa-chip--on-dark { background: rgba(255,255,255,.14); color: var(--pa-on-dark); }
+.pa-kicker { display: inline-block; margin-bottom: var(--pa-space-s); }
+
+/* ------------------------------------------------------------------ CARD */
+.pa-card {
+  background: var(--pa-surface);
+  border: 1px solid var(--pa-border);
+  border-radius: var(--pa-radius-l);
+  padding: var(--pa-space-l);
+}
+.pa-card--soft { background: var(--pa-accent-soft); border-color: transparent; }
+.pa-card--dark { background: var(--pa-bg-dark); border-color: transparent; color: var(--pa-on-dark); }
+.pa-card--dark h1,.pa-card--dark h2,.pa-card--dark h3,.pa-card--dark h4 { color: var(--pa-on-dark); }
+.pa-card--dark p { color: var(--pa-on-dark-muted); }
+
+/* Numero chiave: cifra grande colorata + etichetta breve. */
+.pa-stat__value {
+  font-family: var(--pa-font-display); font-weight: 500;
+  font-size: var(--pa-fs-sub); line-height: 1;
+  color: var(--pa-tint, var(--pa-accent));
+  display: block; margin-bottom: var(--pa-space-xs);
+}
+.pa-stat__label { font-size: 0.875rem; color: var(--pa-fg-soft); max-width: 22ch; }
+
+/* Scheda prodotto: foto in cerchio, titolo colorato, testo breve. */
+.pa-prodotto { display: grid; gap: var(--pa-space-m); }
+.pa-prodotto__media {
+  width: 100%; aspect-ratio: 1; border-radius: 50%;
+  overflow: hidden; background: var(--pa-accent-soft);
+}
+.pa-prodotto__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* -------------------------------------------------------- RITAGLI FOTO */
+/* ◆ 5.1 — «composizioni geometriche»: la foto non sta mai in un rettangolo
+   netto. Cerchio per prodotto e ritratto, seme per l'ambiente. */
+.pa-media--cerchio { border-radius: 50%; overflow: hidden; }
+.pa-media--seme { border-radius: var(--pa-radius-seme); overflow: hidden; }
+.pa-media--morbido { border-radius: var(--pa-radius-xl); overflow: hidden; }
+.pa-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ------------------------------------------------------ ILLUSTRAZIONI */
+/* ◆ 6.2 — «sempre monocromatica e al tratto». I master sono PNG neri con
+   canale alfa: la tinta arriva dalla maschera CSS, così una sola risorsa
+   serve tutte le tinte di brand. */
+.pa-illu {
+  display: inline-block;
+  background-color: var(--pa-illu-tint, var(--pa-accent));
+  -webkit-mask-image: var(--pa-illu-src); mask-image: var(--pa-illu-src);
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-size: contain; mask-size: contain;
+  -webkit-mask-position: center; mask-position: center;
+}
+
+/* ◆ 6.2 — Icona + illustrazione: la firma del sistema. Le geometrie minimali
+   si SOVRAPPONGONO all'illustrazione vintage. Non è un accostamento
+   facoltativo: è il modo in cui il brand racconta un prodotto. */
+.pa-icon-illu { position: relative; display: inline-block; }
+.pa-icon-illu > .pa-illu { display: block; }
+.pa-icon-illu > img { position: absolute; }
+.pa-icon-illu__tl { top: -6%;  left: -8%;  width: 42%; }
+.pa-icon-illu__br { bottom: -4%; right: -6%; width: 34%; }
+
+/* ------------------------------------------------------------ TABELLA */
+.pa-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.pa-table thead th {
+  background: var(--pa-bianco); color: var(--pa-fg);
+  font-family: var(--pa-font-display); font-weight: 500; text-align: left;
+  padding: var(--pa-space-s) var(--pa-space-m);
+  border-bottom: 2px solid var(--pa-border);
+}
+.pa-table td { padding: var(--pa-space-s) var(--pa-space-m); border-bottom: 1px solid var(--pa-border); color: var(--pa-fg-soft); }
+.pa-table--numeric td:not(:first-child), .pa-table--numeric th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Riquadro valori nutrizionali — il modulo ricorrente delle schede agrozoo. */
+.pa-nutrienti {
+  border: 1.5px solid currentColor; border-radius: var(--pa-radius-m);
+  padding: var(--pa-space-m); font-size: 0.875rem;
+}
+.pa-nutrienti__titolo { font-family: var(--pa-font-display); font-weight: 500; margin-bottom: var(--pa-space-xs); }
+.pa-nutrienti ul { margin: 0; padding-left: var(--pa-space-m); }
+
+/* ------------------------------------------------------------- FASCE */
+.pa-band { padding-block: var(--pa-space-3xl); padding-inline: 0; }
+.pa-band--sabbia { background: var(--pa-bg); }
+.pa-band--chiara { background: var(--pa-accent-soft); }
+.pa-band--scura { background: var(--pa-bg-dark); color: var(--pa-on-dark); }
+.pa-band--scura h1,.pa-band--scura h2,.pa-band--scura h3 { color: var(--pa-on-dark); }
+.pa-band--scura p { color: var(--pa-on-dark-muted); }
+.pa-band__inner { max-width: var(--pa-grid-max); margin-inline: auto; padding-inline: var(--pa-grid-margin); }
+
+/* ------------------------------------------------------------ HEADER */
+.pa-header { background: var(--pa-bianco); border-bottom: 1px solid var(--pa-border); }
+.pa-header__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--pa-space-l);
+  max-width: var(--pa-grid-max); margin-inline: auto; padding: var(--pa-space-m) var(--pa-grid-margin); }
+.pa-header__logo img { height: 40px; width: auto; display: block; }
+.pa-header nav { display: flex; gap: var(--pa-space-l); }
+.pa-header nav a { color: var(--pa-fg-soft); text-decoration: none; font-size: 0.875rem; }
+.pa-header nav a:hover, .pa-header nav a[aria-current] { color: var(--pa-accent); }
+
+/* ------------------------------------------------------------ FOOTER */
+.pa-footer { background: var(--pa-bg-dark); color: var(--pa-on-dark); padding-block: var(--pa-space-3xl); }
+.pa-footer__inner { max-width: var(--pa-grid-max); margin-inline: auto; padding-inline: var(--pa-grid-margin);
+  display: flex; flex-wrap: wrap; gap: var(--pa-space-2xl); justify-content: space-between; }
+.pa-footer a { color: var(--pa-on-dark); text-decoration: none; }
+.pa-footer a:hover { color: var(--pa-on-dark-accent); }
+.pa-footer h4 { color: var(--pa-on-dark-accent); font-size: 0.8125rem; text-transform: uppercase; letter-spacing: var(--pa-ls-label); }
+.pa-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--pa-space-xs); font-size: 0.875rem; }
+
+/* --------------------------------------------------------- LOCKUP LOGO */
+/* ◆ 2.1-2.3 — Il wordmark di segmento va SEMPRE con l'endorser Produttori
+   Arborea, in proporzione 5:1. La misura dell'endorser si ricava da quella
+   del wordmark, non si sceglie a occhio. */
+.pa-lockup { display: inline-grid; justify-items: center; gap: var(--pa-space-m); }
+.pa-lockup__brand { display: block; width: var(--pa-lockup-w, 240px); height: auto; }
+.pa-lockup__endorser { display: block; width: calc(var(--pa-lockup-w, 240px) / var(--pa-endorser-ratio)); height: auto; }
+
+/* ----------------------------------------------------------- TEXTURE */
+/* ◆ 6.1 — «Il minimalismo progettuale rende possibile la creazione di texture».
+   Le icone, ripetute fitte, diventano fondo. Mai sopra il testo. */
+.pa-texture { position: relative; }
+.pa-texture::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: var(--pa-texture-src);
+  background-repeat: repeat;
+  background-size: var(--pa-texture-size, 140px);
+  opacity: var(--pa-texture-opacity, .5);
+}
+.pa-texture > * { position: relative; z-index: 1; }
