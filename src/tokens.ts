@@ -32,16 +32,16 @@ export const cmyk: Record<keyof typeof colore, [number, number, number, number]>
 };
 
 /**
- * Colore di progetto — Arbolat. Non è nella main palette del brandbook: nasce
- * con il progetto «fattoria etica e sostenibile» e vale solo lì. Evoca il latte
- * e l'acqua, ed è la tinta della goccia che sostituisce la O del marchio.
+ * Colore di progetto — Arbolat: UN solo colore proprio.
+ * Non è nella main palette del brandbook: nasce con il progetto «fattoria etica
+ * e sostenibile» e vale solo lì. Evoca il latte e l'acqua, ed è la tinta della
+ * goccia che sostituisce la O del marchio.
+ *
+ * I secondari di Arbolat non stanno qui perché non sono suoi: sono foglia,
+ * campagna e sabbia, presi tali e quali dalla main palette. Vedi
+ * `paletteSegmento.arbolat`.
  */
-export const arbolat = {
-  acqua:       '#29B8CE',
-  acquaChiaro: '#3DBBDC',
-  acquaTenue:  '#C3E4ED',
-  acquaScuro:  '#1E93A6',   // derivato, per gli stati
-} as const;
+export const acqua = '#29B8CE';
 
 /** Derivati per l'interfaccia — non stanno nel brandbook. */
 export const ui = {
@@ -51,6 +51,7 @@ export const ui = {
   pomodoroScuro: '#A80810',
   carneScuro: '#6B121C',    carneTenue: '#F6E7E7',     carneBordo: '#DDB6B8',
   oroScuro: '#A9873F',      oroTenue: '#FAF0DE',       oroBordo: '#E8D3AA',
+  acquaScuro: '#1E93A6',    acquaTenue: '#DCEFF4',
   bianco: '#FFFFFF', grigio100: '#F4F0EC', grigio200: '#E5DFD9',
   grigio400: '#A9A29B', grigio600: '#6B645D',
 } as const;
@@ -69,7 +70,8 @@ export const paletteSegmento: Record<Segmento, string[]> = {
   ortofrutta: [colore.foglia, colore.campagna, colore.arancio, colore.pomodoro, colore.oro, colore.melanzana, colore.sabbia, colore.notte],
   carni:      [colore.carne, colore.pomodoro, colore.oro, colore.argento, colore.legno, colore.sabbia, colore.notte],
   agrozoo:    [colore.oro, colore.campagna, colore.carne, colore.ferro, colore.legno, colore.sabbia, colore.notte],
-  arbolat:    [arbolat.acqua, colore.foglia, colore.campagna, colore.oro, arbolat.acquaTenue, colore.sabbia],
+  // Arbolat: acqua e i tre secondari, nient'altro.
+  arbolat:    [acqua, colore.foglia, colore.campagna, colore.sabbia],
 };
 
 /** Serie colore per i grafici, in ordine di lettura. Massimo 6 serie. */
@@ -78,7 +80,7 @@ export const serieGrafico: Record<Segmento, string[]> = {
   ortofrutta: [colore.foglia, colore.campagna, colore.arancio, colore.pomodoro, colore.oro, colore.melanzana],
   carni:      [colore.carne, colore.pomodoro, colore.oro, colore.argento, colore.legno, colore.ferro],
   agrozoo:    [colore.oro, colore.carne, colore.campagna, colore.ferro, colore.legno, colore.argento],
-  arbolat:    [arbolat.acqua, colore.foglia, colore.campagna, colore.oro, arbolat.acquaTenue, colore.ferro],
+  arbolat:    [acqua, colore.foglia, colore.campagna, colore.sabbia, colore.ferro, colore.argento],
 };
 
 /** I quattro marchi: concept, tema, logo, repertorio di immagini ammesso. */
@@ -114,7 +116,7 @@ export const brand: Record<Segmento, {
     nome: 'Arbolat', segmento: 'Progetto — fattoria etica e sostenibile', tema: 'theme-arbolat',
     logo: '/brand/loghi/arbolat.svg', logoMono: '/brand/loghi/arbolat-mono.svg',
     concept: 'Una goccia di latte al posto della O, un tetto sopra e la linea del suolo sotto: la stalla e ciò che ne esce.',
-    accento: arbolat.acqua, illustrazioni: ['scene', 'animali'], payoff: 'Fattoria etica e sostenibile',
+    accento: acqua, illustrazioni: ['scene', 'animali'], payoff: 'Fattoria etica e sostenibile',
   },
 };
 

@@ -33,13 +33,12 @@
      metalliche o lamine: da valutare sui contrasti reali del materiale. */
 
   /* ------------------------------------- COLORE DI PROGETTO — Arbolat
-     Non è nella main palette del brandbook: nasce con il progetto Arbolat
-     (fattoria etica e sostenibile) e vale solo lì. Evoca il latte e l'acqua,
-     ed è la tinta della goccia che sostituisce la O del marchio. */
-  --pa-acqua:        #29B8CE;   /* fasce piene, marchio Arbolat */
-  --pa-acqua-chiaro: #3DBBDC;   /* accenti, gocce piccole */
-  --pa-acqua-tenue:  #C3E4ED;   /* riquadri e fondi tenui */
-  --pa-acqua-scuro:  #1E93A6;   /* derivato, per gli stati */
+     UN solo colore proprio. Non è nella main palette del brandbook: nasce con
+     il progetto Arbolat (fattoria etica e sostenibile) e vale solo lì. Evoca
+     il latte e l'acqua, ed è la tinta della goccia al posto della O.
+     I secondari di Arbolat NON sono derivati da qui: sono foglia, campagna
+     e sabbia, presi tali e quali dalla main palette. */
+  --pa-acqua: #29B8CE;
 
   /* ---------------------------------------------- DERIVATI (non da brandbook)
      Servono all'interfaccia: fondi tenui, bordi, stati hover. Restano
@@ -66,6 +65,11 @@
   --pa-oro-bordo: #E8D3AA;
 
   --pa-melanzana-scuro: #3F1439;
+
+  /* Stati dell'interfaccia per il tema Arbolat: servono a hover e fondi tenui,
+     non fanno parte della sua palette. */
+  --pa-acqua-scuro: #1E93A6;
+  --pa-acqua-tenue: #DCEFF4;
 
   --pa-sabbia-piu:  #FFFBF8;
   --pa-bianco:      #FFFFFF;
@@ -260,13 +264,13 @@
 }
 
 .theme-arbolat {
-  /* Progetto Arbolat. Il turchese porta il tema, la foglia fa da secondario:
-     è la coppia della copertina, dove la fascia d'acqua sta sopra e il campo
-     verde sotto. Il fondo pieno resta campagna, come nel resto del sistema. */
+  /* Progetto Arbolat: acqua come colore proprio, e foglia, campagna e sabbia
+     come secondari — tutti e tre dalla main palette. È la copertina della
+     brochure: fascia d'acqua sopra, campo verde sotto, pagine su sabbia. */
   --pa-accent:        var(--pa-acqua);
   --pa-accent-strong: var(--pa-acqua-scuro);
   --pa-accent-soft:   var(--pa-acqua-tenue);
-  --pa-accent-border: var(--pa-acqua-chiaro);
+  --pa-accent-border: var(--pa-acqua);
   --pa-accent-on:     var(--pa-bianco);
 
   --pa-pop:        var(--pa-foglia);
@@ -274,15 +278,17 @@
   --pa-pop-on:     var(--pa-notte);
 
   --pa-bg-dark:        var(--pa-campagna);
-  --pa-on-dark-accent: var(--pa-acqua-chiaro);
+  --pa-on-dark-accent: var(--pa-acqua);
   --pa-on-dark-muted:  var(--pa-acqua-tenue);
 
+  /* Acqua, foglia, campagna, sabbia: la palette è tutta qui. I due neutri
+     in coda servono solo se un grafico ha più di quattro serie. */
   --pa-data-1: var(--pa-acqua);
   --pa-data-2: var(--pa-foglia);
   --pa-data-3: var(--pa-campagna);
-  --pa-data-4: var(--pa-oro);
-  --pa-data-5: var(--pa-acqua-tenue);
-  --pa-data-6: var(--pa-ferro);
+  --pa-data-4: var(--pa-sabbia);
+  --pa-data-5: var(--pa-ferro);
+  --pa-data-6: var(--pa-argento);
 }
 
 /* ============================================================ BASE / TIPO */

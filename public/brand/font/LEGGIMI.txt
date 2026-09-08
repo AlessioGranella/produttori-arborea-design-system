@@ -9,19 +9,25 @@ Roboto Flex non sale mai a fare da titolo.
 
 CONTENUTO
 ---------
-Fredoka[wdth,wght].ttf        variabile, da installare sul sistema (macOS, Windows,
-                              Adobe CC, Figma desktop)
-RobotoFlex[...].ttf           variabile, come sopra
-fredoka-latin.woff2           subset latino, per il web (self-hosting)
-robotoflex-latin.woff2        subset latino, per il web
+Fredoka[wdth,wght].ttf         variabile: due assi, larghezza e peso. È il file
+                               da preferire dove è supportato (Illustrator,
+                               InDesign, Figma, browser).
+fredoka-statici/               i 20 tagli discreti, per i programmi che non
+                               gestiscono i font variabili: quattro larghezze
+                               (Condensed, SemiCondensed, normale, SemiExpanded,
+                               Expanded) per cinque pesi (Light, Regular, Medium,
+                               SemiBold, Bold).
+RobotoFlex-VariableFont.ttf    variabile, con tutti gli assi.
+fredoka-latin.woff2            subset latino, per il web (self-hosting)
+robotoflex-latin.woff2         subset latino, per il web
 
 INSTALLAZIONE
 -------------
 macOS    doppio clic sul .ttf → «Installa font»
 Windows  tasto destro sul .ttf → «Installa»
 
-Sono font variabili: in Illustrator, InDesign e Figma trovi un cursore per
-peso e larghezza invece dei singoli tagli.
+Installa il variabile OPPURE gli statici, non entrambi: avere le due versioni
+insieme fa comparire la famiglia due volte nel menu dei caratteri.
 
 USO SUL WEB
 -----------

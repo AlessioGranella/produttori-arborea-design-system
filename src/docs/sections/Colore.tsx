@@ -1,4 +1,4 @@
-import { colore, cmyk, paletteSegmento, arbolat } from '../../tokens';
+import { colore, cmyk, paletteSegmento, acqua } from '../../tokens';
 import { Codice } from '../Codice';
 import { useCopia } from '../Copiabile';
 
@@ -99,35 +99,45 @@ export function Colore() {
       ))}
 
       <section className="dx-section">
-        <h2>Colore di progetto — Arbolat <span className="pa-caption">· fuori main palette</span></h2>
+        <h2>Colore di progetto — Arbolat <span className="pa-caption">· 4.5, fuori brandbook</span></h2>
         <p>
-          Il turchese di Arbolat non è nella main palette del brandbook: nasce con il progetto
-          «fattoria etica e sostenibile» e vale solo lì. Evoca il latte e l’acqua, ed è la tinta
-          della goccia che sostituisce la O del marchio. Sulla copertina della brochure sta in
-          alto, sopra la fascia verde del campo.
+          Arbolat ha <strong>un solo colore proprio</strong>: l’acqua. Non è nella main palette
+          del brandbook — nasce con il progetto «fattoria etica e sostenibile» e vale solo lì.
+          Evoca il latte e l’acqua, ed è la tinta della goccia che sostituisce la O del marchio.
         </p>
-        <div className="dx-swatches">
-          {([['acqua', arbolat.acqua, 'fasce piene, marchio'],
-             ['acqua chiaro', arbolat.acquaChiaro, 'accenti, gocce piccole'],
-             ['acqua tenue', arbolat.acquaTenue, 'riquadri e fondi'],
-             ['acqua scuro', arbolat.acquaScuro, 'derivato, per gli stati']] as const).map(([n, hex, uso]) => (
-            <div className="dx-swatch" key={n}>
-              <button type="button" className="dx-swatch__chip"
-                      style={{ height: 68, background: hex }}
-                      onClick={() => copia(hex)} aria-label={`Copia ${hex}, ${n}`} />
-              <div className="dx-swatch__meta">
-                <strong>{n}</strong><em className="pa-caption"> · {uso}</em>
-                <code onClick={() => copia(hex)} role="button" tabIndex={0}
-                      onKeyDown={e => e.key === 'Enter' && copia(hex)}>{hex}</code>
-              </div>
-              {copiato === hex && <span className="dx-copiato">copiato</span>}
+        <div className="dx-swatches" style={{ maxWidth: 200 }}>
+          <div className="dx-swatch">
+            <button type="button" className="dx-swatch__chip" style={{ height: 88, background: acqua }}
+                    onClick={() => copia(acqua)} aria-label={`Copia ${acqua}, acqua`} />
+            <div className="dx-swatch__meta">
+              <strong>acqua</strong>
+              <code onClick={() => copia(acqua)} role="button" tabIndex={0}
+                    onKeyDown={e => e.key === 'Enter' && copia(acqua)}>{acqua}</code>
             </div>
+            {copiato === acqua && <span className="dx-copiato">copiato</span>}
+          </div>
+        </div>
+
+        <p style={{ marginTop: 'var(--pa-space-l)' }}>
+          I <strong>secondari</strong> non sono derivati dall’acqua: sono foglia, campagna e
+          sabbia, presi tali e quali dalla main palette. È la copertina della brochure — fascia
+          d’acqua sopra, campo verde sotto, pagine su sabbia.
+        </p>
+        <div className="dx-row" style={{ gap: 0, borderRadius: 'var(--pa-radius-m)', overflow: 'hidden',
+                                         border: '1px solid rgba(0,14,30,.12)', flexWrap: 'nowrap' }}>
+          {paletteSegmento.arbolat.map((c, i) => (
+            <button key={c} type="button" onClick={() => copia(c)} aria-label={`Copia ${c}`} title={c}
+                    style={{ background: c, height: 84, flex: i === 0 ? 2 : 1, minWidth: 60,
+                             border: 0, borderLeft: i ? '1px solid rgba(0,14,30,.12)' : 0,
+                             padding: 0, cursor: 'copy' }} />
           ))}
         </div>
+        <p className="pa-caption">acqua · foglia · campagna · sabbia</p>
+
         <div className="dx-note">
           <p>
-            Va usato <strong>solo su materiali Arbolat</strong>. Dentro un catalogo Primoverde o
-            una scheda Meridoro è fuori sistema: lì il turchese non esiste.
+            L’acqua va usata <strong>solo su materiali Arbolat</strong>. Dentro un catalogo
+            Primoverde o una scheda Meridoro è fuori sistema: lì il turchese non esiste.
           </p>
         </div>
       </section>

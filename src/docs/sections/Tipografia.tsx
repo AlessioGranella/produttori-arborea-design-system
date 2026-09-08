@@ -34,11 +34,11 @@ export function Tipografia() {
         </div>
 
         <div className="dx-scarica">
-          <ScaricaTutto pacchetto="font" etichetta="Scarica i caratteri" peso="2 MB" />
+          <ScaricaTutto pacchetto="font" etichetta="Scarica i caratteri" peso="1,6 MB" />
           <span className="pa-caption">
-            Font variabili in TTF da installare, subset latini in WOFF2 per il web, licenza
-            SIL Open Font 1.1 inclusa: entrambi si possono usare e ridistribuire anche in
-            progetti commerciali.
+            Variabili in TTF, i 20 tagli statici di Fredoka per chi non li gestisce, subset
+            latini in WOFF2 per il web, licenza SIL Open Font 1.1 inclusa: entrambi si possono
+            usare e ridistribuire anche in progetti commerciali.
           </span>
         </div>
 
@@ -46,7 +46,7 @@ export function Tipografia() {
           <div className="dx-row" style={{ justifyContent: 'space-between', alignItems: 'baseline' }}>
             <p className="pa-caption" style={{ margin: 0 }}>Fredoka — head font · variabile, peso 300–600</p>
             <span className="dx-dl">
-              <a className="dx-dl__link" download href={asset('brand/font/Fredoka[wdth,wght].ttf')}>TTF</a>
+              <a className="dx-dl__link" download href={asset('brand/font/Fredoka[wdth,wght].ttf')}>TTF variabile</a>
               <a className="dx-dl__link" download href={asset('brand/font/fredoka-latin.woff2')}>WOFF2</a>
             </span>
           </div>
@@ -56,12 +56,19 @@ export function Tipografia() {
           <div style={{ fontFamily: 'var(--pa-font-display)', fontWeight: 300, fontSize: 40, color: 'var(--pa-campagna)' }}>
             abcdefghijklmnopqrstuvxywz 0123456789
           </div>
+          <p className="pa-caption" style={{ marginTop: 'var(--pa-space-s)' }}>
+            Fredoka è variabile su due assi, larghezza e peso: dove il variabile non è
+            supportato ci sono i 20 tagli statici — quattro larghezze per cinque pesi.
+            Installa il variabile <em>oppure</em> gli statici, non entrambi, o la famiglia
+            compare due volte nel menu dei caratteri.
+          </p>
+
           <div className="dx-row" style={{ justifyContent: 'space-between', alignItems: 'baseline',
                                             marginTop: 'var(--pa-space-l)' }}>
             <p className="pa-caption" style={{ margin: 0 }}>Roboto Flex — body font · variabile, peso 300–500</p>
             <span className="dx-dl">
               <a className="dx-dl__link" download
-                 href={asset('brand/font/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf')}>TTF</a>
+                 href={asset('brand/font/RobotoFlex-VariableFont.ttf')}>TTF variabile</a>
               <a className="dx-dl__link" download href={asset('brand/font/robotoflex-latin.woff2')}>WOFF2</a>
             </span>
           </div>
