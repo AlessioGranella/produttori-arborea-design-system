@@ -22,6 +22,7 @@ pacchetto loghi              loghi
 pacchetto font               font
 pacchetto texture            texture
 pacchetto paesaggi           paesaggi
-pacchetto produttori-arborea-asset icone loghi texture illustrazioni paesaggi font
+pacchetto soggetti           soggetti
+pacchetto produttori-arborea-asset icone loghi texture illustrazioni paesaggi soggetti font
 
 echo "archivi pronti in $OUT"
