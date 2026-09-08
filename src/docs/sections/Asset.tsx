@@ -3,6 +3,7 @@ import { Illustrazione } from '../../components/Illustrazione';
 import { IconaIllustrazione } from '../../components/IconaIllustrazione';
 import { colore } from '../../tokens';
 import { Codice } from '../Codice';
+import { Scarica, ScaricaTutto } from '../Scarica';
 import { asset, assetUrl } from '../../asset';
 
 const TINTE = [
@@ -24,6 +25,13 @@ export function Asset() {
             distintiva — ed è quella la firma del sistema, non un accostamento facoltativo.
           </p>
         </div>
+        <div className="dx-scarica">
+          <ScaricaTutto pacchetto="produttori-arborea-asset" etichetta="Scarica tutti gli asset" peso="24 MB" />
+          <span className="pa-caption">
+            Icone e illustrazioni sono disponibili sia in SVG vettoriale sia in PNG con
+            trasparenza. Ogni tessera qui sotto ha i suoi due link.
+          </span>
+        </div>
       </section>
 
       <section className="dx-section">
@@ -33,11 +41,17 @@ export function Asset() {
           la semplicità e la vivacità, e vivono ovunque: packaging, sito, materiali stampati.
           Sono vettoriali, quindi scalano senza limiti; la misura tipica è fra 16 e 64&nbsp;px.
         </p>
+        <div className="dx-scarica">
+          <ScaricaTutto pacchetto="icone-svg" etichetta="Tutte le icone in SVG" peso="7 KB" />
+          <ScaricaTutto pacchetto="icone-png" etichetta="Tutte le icone in PNG" peso="503 KB" />
+          <span className="pa-caption">I PNG sono a 1024 px con trasparenza.</span>
+        </div>
         <div className="dx-tiles">
           {manifest.icone.map(n => (
             <div className="dx-tile" key={n}>
               <img src={asset(`brand/icone/${n}.svg`)} alt={n} />
               <span>{n}</span>
+              <Scarica base={`brand/icone/${n}`} />
             </div>
           ))}
         </div>
@@ -68,6 +82,9 @@ export function Asset() {
             </div>
           ))}
         </div>
+        <div className="dx-scarica">
+          <ScaricaTutto pacchetto="texture" etichetta="Tutte le texture in SVG" peso="10 KB" />
+        </div>
         <Codice>{`<section class="pa-band ⟦pa-texture⟧" style="
   --pa-texture-src: url(/brand/texture/icone-fitta.svg);
   --pa-texture-size: 120px;
@@ -86,8 +103,10 @@ export function Asset() {
         <h2>Illustrazioni</h2>
         <p>
           Trentadue soggetti — ventiquattro di ortofrutta, otto di animali — al tratto e sempre
-          monocromatici. I master sono PNG neri con canale alfa e la tinta arriva da CSS: una
-          sola risorsa serve tutte le tinte di brand.
+          monocromatici. Ogni soggetto esiste in due formati: <strong>SVG vettoriale</strong>,
+          per la stampa e per ogni ingrandimento, e <strong>PNG con trasparenza</strong>, per il
+          digitale e per il montaggio veloce. In entrambi il tratto è nero: il colore si dà dopo.
+          Sul web la tinta arriva dalla maschera CSS, così una sola risorsa serve tutte le tinte.
         </p>
 
         <div className="dx-demo dx-row" style={{ justifyContent: 'space-around' }}>
@@ -99,12 +118,18 @@ export function Asset() {
           ))}
         </div>
 
+        <div className="dx-scarica">
+          <ScaricaTutto pacchetto="illustrazioni-svg" etichetta="Tutte le illustrazioni in SVG" peso="4,6 MB" />
+          <ScaricaTutto pacchetto="illustrazioni-png" etichetta="Tutte le illustrazioni in PNG" peso="18 MB" />
+        </div>
+
         <h3>Ortofrutta</h3>
         <div className="dx-tiles">
           {manifest.illustrazioni.ortofrutta.map(n => (
             <div className="dx-tile" key={n}>
               <Illustrazione nome={n} tinta={colore.campagna} altezza={76} />
               <span>{n}</span>
+              <Scarica base={`brand/illustrazioni/ortofrutta/${n}`} />
             </div>
           ))}
         </div>
@@ -115,6 +140,7 @@ export function Asset() {
             <div className="dx-tile" key={n}>
               <Illustrazione nome={n} famiglia="animali" tinta={colore.carne} altezza={76} />
               <span>{n}</span>
+              <Scarica base={`brand/illustrazioni/animali/${n}`} />
             </div>
           ))}
         </div>

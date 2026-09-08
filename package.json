@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prebuild": "bash scripts/pacchetti.sh"
   },
   "dependencies": {
     "react": "^19.0.0",

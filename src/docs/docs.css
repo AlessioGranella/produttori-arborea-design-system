@@ -69,3 +69,19 @@
   .dx-main { padding: var(--pa-space-xl) var(--pa-space-m); }
   .dx-do-dont { grid-template-columns: 1fr; }
 }
+
+/* --------------------------------------------------------------- DOWNLOAD */
+.dx-dl { display: inline-flex; gap: 4px; }
+.dx-dl__link {
+  font-size: 10px; font-weight: 500; letter-spacing: .06em;
+  padding: 2px 6px; border-radius: 999px; text-decoration: none;
+  color: var(--pa-campagna); background: var(--pa-campagna-tenue);
+}
+.dx-dl__link:hover { background: var(--pa-campagna); color: var(--pa-sabbia); }
+.dx-dl__peso { opacity: .6; font-weight: 400; }
+.dx-tile { position: relative; }
+.dx-tile .dx-dl { margin-top: 2px; }
+.dx-scarica {
+  display: flex; flex-wrap: wrap; gap: var(--pa-space-s); align-items: center;
+  margin-bottom: var(--pa-space-l);
+}

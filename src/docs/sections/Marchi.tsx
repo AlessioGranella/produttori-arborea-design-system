@@ -2,6 +2,7 @@ import { brand, misureMinime, paletteSegmento, type Segmento } from '../../token
 import { Lockup } from '../../components/Lockup';
 import { Logo } from '../../components/Logo';
 import { Codice } from '../Codice';
+import { ScaricaTutto } from '../Scarica';
 import { asset } from '../../asset';
 
 const ORDINE: Segmento[] = ['arborea', 'ortofrutta', 'carni', 'agrozoo'];
@@ -126,6 +127,10 @@ export function Marchi() {
           })}
         </div>
 
+        <div className="dx-scarica">
+          <ScaricaTutto pacchetto="loghi" etichetta="Tutti i logo in SVG" peso="80 KB" />
+          <span className="pa-caption">Vettoriali, fondo trasparente, con variante «-mono» tintabile.</span>
+        </div>
         <h3>Positivo e negativo</h3>
         <div className="pa-grid">
           <div className="pa-col-6">
