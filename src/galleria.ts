@@ -1,6 +1,6 @@
 /** Indice della galleria: materiali applicati, raggruppati per famiglia. */
 export type Voce = {
-  file: string; titolo: string; segmento?: 'ortofrutta' | 'carni' | 'agrozoo' | 'corporate';
+  file: string; titolo: string; segmento?: 'ortofrutta' | 'carni' | 'agrozoo' | 'corporate' | 'arbolat';
   nota?: string; render?: boolean;   // render = immagine generata, non fotografia
 };
 
@@ -62,6 +62,16 @@ export const galleria: { gruppo: string; testo: string; voci: Voce[] }[] = [
       { file: 'stampato-primoverde-copertina', titolo: 'Primoverde — Linea del fresco', segmento: 'ortofrutta' },
       { file: 'stampato-meridoro-copertina', titolo: 'Meridoro — Bovini', segmento: 'agrozoo' },
       { file: 'stampato-company-profile', titolo: 'Company profile', segmento: 'corporate' },
+    ],
+  },
+  {
+    gruppo: 'Arbolat',
+    testo: 'Il progetto di filiera ha un impaginato suo: turchese e verde a fasce piene, la goccia come contenitore fotografico, e le illustrazioni di scena tinte in verde a fare da paesaggio. Niente packshot — qui si racconta un sistema, non un prodotto.',
+    voci: [
+      { file: 'arbolat-copertina', titolo: 'Copertina — la goccia e le due fasce', segmento: 'arbolat' },
+      { file: 'arbolat-apertura', titolo: 'Apertura — fotografia e campo verde', segmento: 'arbolat' },
+      { file: 'arbolat-obiettivi', titolo: 'Obiettivi strategici', segmento: 'arbolat' },
+      { file: 'arbolat-sinergie', titolo: 'Sinergie di sistema', segmento: 'arbolat' },
     ],
   },
 ];

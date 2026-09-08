@@ -1,4 +1,5 @@
 import { assetUrl } from '../asset';
+import type { Famiglia } from '../tokens';
 
 /**
  * Illustrazione a incisione, tinta a piacere.
@@ -14,7 +15,7 @@ export function Illustrazione({
   nome, famiglia = 'ortofrutta', tinta, altezza = 200, opacita = 1,
   anteprima, className = '',
 }: {
-  nome: string; famiglia?: 'ortofrutta' | 'animali';
+  nome: string; famiglia?: Famiglia;
   tinta?: string; altezza?: number | string; opacita?: number;
   anteprima?: boolean; className?: string;
 }) {

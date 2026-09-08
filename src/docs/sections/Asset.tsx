@@ -1,10 +1,19 @@
 import manifest from '../../manifest.json';
 import { Illustrazione } from '../../components/Illustrazione';
 import { IconaIllustrazione } from '../../components/IconaIllustrazione';
-import { colore } from '../../tokens';
+import { colore, type Famiglia } from '../../tokens';
 import { Codice } from '../Codice';
 import { Scarica, ScaricaTutto } from '../Scarica';
 import { asset, assetUrl } from '../../asset';
+
+const FAMIGLIE: [Famiglia, string, string, string][] = [
+  ['ortofrutta', 'Ortofrutta', 'Il repertorio generale: frutta, ortaggi, insalate.', colore.campagna],
+  ['patate', 'Patate', 'La linea pataticola, unica OP della Sardegna: novelle, rosse, tondello.', colore.oro],
+  ['quarta-gamma', 'Quarta gamma', 'I soggetti delle insalate pronte, uno per referenza.', colore.foglia],
+  ['cereali', 'Cereali', 'Mais e grano: le materie prime dei mangimi.', colore.oro],
+  ['animali', 'Animali', 'Le specie della filiera zootecnica.', colore.carne],
+  ['scene', 'Scene', 'Il repertorio narrativo: campi, stalle, persone, formazione. Nato per il progetto Arbolat, serve a raccontare la filiera dove il singolo prodotto non basta.', colore.campagna],
+];
 
 const TINTE = [
   ['campagna', colore.campagna], ['foglia', colore.foglia],
@@ -26,7 +35,7 @@ export function Asset() {
           </p>
         </div>
         <div className="dx-scarica">
-          <ScaricaTutto pacchetto="produttori-arborea-asset" etichetta="Scarica tutti gli asset" peso="24 MB" />
+          <ScaricaTutto pacchetto="produttori-arborea-asset" etichetta="Scarica tutti gli asset" peso="60 MB" />
           <span className="pa-caption">
             Icone e illustrazioni sono disponibili sia in SVG vettoriale sia in PNG con
             trasparenza. Ogni tessera qui sotto ha i suoi due link.
@@ -119,31 +128,36 @@ export function Asset() {
         </div>
 
         <div className="dx-scarica">
-          <ScaricaTutto pacchetto="illustrazioni-svg" etichetta="Tutte le illustrazioni in SVG" peso="4,6 MB" />
-          <ScaricaTutto pacchetto="illustrazioni-png" etichetta="Tutte le illustrazioni in PNG" peso="18 MB" />
+          <ScaricaTutto pacchetto="illustrazioni-svg" etichetta="Tutte le illustrazioni in SVG" peso="10 MB" />
+          <ScaricaTutto pacchetto="illustrazioni-png" etichetta="Tutte le illustrazioni in PNG" peso="46 MB" />
         </div>
 
-        <h3>Ortofrutta</h3>
-        <div className="dx-tiles">
-          {manifest.illustrazioni.ortofrutta.map(n => (
-            <div className="dx-tile" key={n}>
-              <Illustrazione nome={n} tinta={colore.campagna} altezza={76} />
-              <span>{n}</span>
-              <Scarica base={`brand/illustrazioni/ortofrutta/${n}`} />
-            </div>
-          ))}
+        <div className="dx-scarica">
+          <ScaricaTutto pacchetto="illustrazioni-svg" etichetta="Tutte le illustrazioni in SVG" peso="10 MB" />
+          <ScaricaTutto pacchetto="illustrazioni-png" etichetta="Tutte le illustrazioni in PNG" peso="46 MB" />
         </div>
 
-        <h3 style={{ marginTop: 'var(--pa-space-xl)' }}>Animali</h3>
-        <div className="dx-tiles">
-          {manifest.illustrazioni.animali.map(n => (
-            <div className="dx-tile" key={n}>
-              <Illustrazione nome={n} famiglia="animali" tinta={colore.carne} altezza={76} />
-              <span>{n}</span>
-              <Scarica base={`brand/illustrazioni/animali/${n}`} />
+        {FAMIGLIE.map(([chiave, titolo, nota, tinta]) => {
+          const voci = (manifest.illustrazioni as Record<string, string[]>)[chiave] ?? [];
+          if (!voci.length) return null;
+          return (
+            <div key={chiave} style={{ marginBottom: 'var(--pa-space-xl)' }}>
+              <h3>{titolo} <span className="pa-caption">· {voci.length}</span></h3>
+              <p className="pa-small">{nota}</p>
+              <div className="dx-tiles">
+                {voci.map(n => (
+                  <div className="dx-tile" key={n}>
+                    {/* le scene sono orizzontali: a 76px il soggetto non si legge */}
+                    <Illustrazione nome={n} famiglia={chiave} tinta={tinta}
+                                   altezza={chiave === 'scene' ? 104 : 76} />
+                    <span>{n}</span>
+                    <Scarica base={`brand/illustrazioni/${chiave}/${n}`} />
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
 
         <Codice>{`<span class="⟦pa-illu⟧" style="
   --pa-illu-src: url(/brand/illustrazioni/ortofrutta/carota.png);

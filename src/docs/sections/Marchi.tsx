@@ -6,7 +6,7 @@ import { ScaricaTutto } from '../Scarica';
 import { GrigliaLoghi } from '../GrigliaLoghi';
 import { asset } from '../../asset';
 
-const ORDINE: Segmento[] = ['arborea', 'ortofrutta', 'carni', 'agrozoo'];
+const ORDINE: Segmento[] = ['arborea', 'ortofrutta', 'carni', 'agrozoo', 'arbolat'];
 
 const DETTAGLI: Record<Segmento, { ruolo: string; cosa: string; voce: string; immagini: string }> = {
   arborea: {
@@ -32,6 +32,12 @@ const DETTAGLI: Record<Segmento, { ruolo: string; cosa: string; voce: string; im
     cosa: 'Mangimificio specializzato in unifeed fibrosi, rete di 12 punti vendita agrozootecnici e consulenza tecnica in tutta la Sardegna.',
     voce: 'Tecnica e concreta. Numeri, formati, dosi: la scheda prodotto è il formato naturale.',
     immagini: 'Illustrazioni di animali, macro di materia prima nei ritagli tondi, texture di icone.',
+  },
+  arbolat: {
+    ruolo: 'Progetto di filiera',
+    cosa: 'La fattoria etica e sostenibile della cooperativa: 1.000 capi in mungitura, stalle in legno, robot di mungitura, economia circolare. È un progetto, non una linea di prodotto — e infatti non ha un packaging ma un racconto.',
+    voce: 'Divulgativa e responsabile. Parla di benessere animale, energia, ricadute sul territorio.',
+    immagini: 'Le illustrazioni di scena, tinte in verde. La goccia come contenitore fotografico. Niente packshot.',
   },
 };
 
@@ -93,6 +99,7 @@ export function Marchi() {
           <Lockup marchio="ortofrutta" larghezza={200} />
           <Lockup marchio="carni" larghezza={170} />
           <Lockup marchio="agrozoo" larghezza={220} />
+          <Lockup marchio="arbolat" larghezza={190} />
         </div>
         <Codice>{`import { Lockup } from '@pa/design-system';
 <Lockup marchio="⟦ortofrutta⟧" larghezza={240} />   // endorser calcolato a 48px`}</Codice>
@@ -137,7 +144,7 @@ export function Marchi() {
           CSS ed è quella da cui il sistema ricava le tinte.
         </p>
         <div className="dx-scarica">
-          <ScaricaTutto pacchetto="loghi" etichetta="Tutti i logo, tutti i formati" peso="1,6 MB" />
+          <ScaricaTutto pacchetto="loghi" etichetta="Tutti i logo, tutti i formati" peso="2 MB" />
         </div>
         <GrigliaLoghi />
 

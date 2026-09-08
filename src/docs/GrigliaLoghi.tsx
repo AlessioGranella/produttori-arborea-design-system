@@ -9,6 +9,7 @@ const ETICHETTE: Record<string, string> = {
   'primoverde-foglia': 'Primoverde · foglia',
   'rossopregio': 'Rossopregio',
   'meridoro': 'Meridoro',
+  'arbolat': 'Arbolat',
 };
 
 /** Ogni logo con i suoi formati: vettoriale, e raster nelle tre versioni. */

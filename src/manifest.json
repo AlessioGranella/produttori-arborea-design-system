@@ -1,5 +1,6 @@
 {
   "loghi": [
+    "arbolat",
     "meridoro",
     "primoverde",
     "primoverde-foglia",
@@ -33,6 +34,20 @@
     "icone-rada"
   ],
   "illustrazioni": {
+    "animali": [
+      "avicoli",
+      "bovino",
+      "bovino-latte",
+      "caprino",
+      "equino",
+      "limousine",
+      "ovino",
+      "suino"
+    ],
+    "cereali": [
+      "mais",
+      "spiga-di-grano"
+    ],
     "ortofrutta": [
       "angurie",
       "angurie-2",
@@ -59,15 +74,42 @@
       "scarola",
       "zucchina"
     ],
-    "animali": [
-      "avicoli",
-      "bovino",
-      "bovino-latte",
-      "caprino",
-      "equino",
-      "limousine",
-      "ovino",
-      "suino"
+    "patate": [
+      "patate-novelle",
+      "patate-rosse",
+      "patate-tondello"
+    ],
+    "quarta-gamma": [
+      "aurora",
+      "campidanese",
+      "carota",
+      "croccante",
+      "iceberg",
+      "rucola",
+      "smeralda"
+    ],
+    "scene": [
+      "aula",
+      "aula2",
+      "campi",
+      "campi-e-balle",
+      "cooperazione",
+      "economia-circolare",
+      "falda-protetta",
+      "fattore-2",
+      "fertilizzanti",
+      "globo",
+      "interno-stalla",
+      "mappa-sardegna",
+      "mucche",
+      "operatori",
+      "operatori-finali-e-mucche",
+      "operatori2",
+      "robot-mungitura",
+      "stalle",
+      "stalle-e-mucche",
+      "stalle-moderne",
+      "visita-guidata"
     ]
   }
 }

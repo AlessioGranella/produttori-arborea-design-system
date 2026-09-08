@@ -1,4 +1,4 @@
-import { colore, cmyk, paletteSegmento } from '../../tokens';
+import { colore, cmyk, paletteSegmento, arbolat } from '../../tokens';
 import { Codice } from '../Codice';
 import { useCopia } from '../Copiabile';
 
@@ -82,7 +82,9 @@ export function Colore() {
         <section className="dx-section" key={s.k}>
           <h2>{s.titolo} <span className="pa-caption">· {s.rif}</span></h2>
           <p>{s.nota}</p>
-          <div className="dx-row" style={{ gap: 0, borderRadius: 'var(--pa-radius-m)', overflow: 'hidden' }}>
+          {/* bordo esterno: chiude la striscia, altrimenti la sabbia sembra un buco nel fondo */}
+          <div className="dx-row" style={{ gap: 0, borderRadius: 'var(--pa-radius-m)', overflow: 'hidden',
+                                           border: '1px solid rgba(0,14,30,.12)', flexWrap: 'nowrap' }}>
             {paletteSegmento[s.k].map((c, i) => (
               // una linea sottile fra i campioni: senza, la sabbia sparisce sul fondo chiaro
               <button key={c + i} type="button" onClick={() => copia(c)} aria-label={`Copia ${c}`}
@@ -95,6 +97,40 @@ export function Colore() {
           <p className="pa-caption">Il primo è il protagonista; l’ordine è quello di lettura.</p>
         </section>
       ))}
+
+      <section className="dx-section">
+        <h2>Colore di progetto — Arbolat <span className="pa-caption">· fuori main palette</span></h2>
+        <p>
+          Il turchese di Arbolat non è nella main palette del brandbook: nasce con il progetto
+          «fattoria etica e sostenibile» e vale solo lì. Evoca il latte e l’acqua, ed è la tinta
+          della goccia che sostituisce la O del marchio. Sulla copertina della brochure sta in
+          alto, sopra la fascia verde del campo.
+        </p>
+        <div className="dx-swatches">
+          {([['acqua', arbolat.acqua, 'fasce piene, marchio'],
+             ['acqua chiaro', arbolat.acquaChiaro, 'accenti, gocce piccole'],
+             ['acqua tenue', arbolat.acquaTenue, 'riquadri e fondi'],
+             ['acqua scuro', arbolat.acquaScuro, 'derivato, per gli stati']] as const).map(([n, hex, uso]) => (
+            <div className="dx-swatch" key={n}>
+              <button type="button" className="dx-swatch__chip"
+                      style={{ height: 68, background: hex }}
+                      onClick={() => copia(hex)} aria-label={`Copia ${hex}, ${n}`} />
+              <div className="dx-swatch__meta">
+                <strong>{n}</strong><em className="pa-caption"> · {uso}</em>
+                <code onClick={() => copia(hex)} role="button" tabIndex={0}
+                      onKeyDown={e => e.key === 'Enter' && copia(hex)}>{hex}</code>
+              </div>
+              {copiato === hex && <span className="dx-copiato">copiato</span>}
+            </div>
+          ))}
+        </div>
+        <div className="dx-note">
+          <p>
+            Va usato <strong>solo su materiali Arbolat</strong>. Dentro un catalogo Primoverde o
+            una scheda Meridoro è fuori sistema: lì il turchese non esiste.
+          </p>
+        </div>
+      </section>
 
       <section className="dx-section">
         <h2>Token semantici</h2>
@@ -114,7 +150,8 @@ export function Colore() {
         <p>Lo stesso blocco, quattro segmenti. Nessun override: solo la classe sul contenitore.</p>
         <div className="pa-grid">
           {[['', 'Produttori Arborea'], ['theme-ortofrutta', 'Primoverde'],
-            ['theme-carni', 'Rossopregio'], ['theme-agrozoo', 'Meridoro']].map(([cls, nome]) => (
+            ['theme-carni', 'Rossopregio'], ['theme-agrozoo', 'Meridoro'],
+            ['theme-arbolat', 'Arbolat']].map(([cls, nome]) => (
             <div key={nome} className={`pa-col-3 ${cls}`}>
               <div className="pa-card" style={{ display: 'grid', gap: 'var(--pa-space-s)' }}>
                 <span className="pa-chip">{nome}</span>

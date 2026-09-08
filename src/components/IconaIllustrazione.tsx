@@ -1,5 +1,6 @@
 import { Illustrazione } from './Illustrazione';
 import { asset } from '../asset';
+import type { Famiglia } from '../tokens';
 
 /**
  * Icona + illustrazione — brandbook 6.2. La geometria minimale si sovrappone
@@ -9,7 +10,7 @@ import { asset } from '../asset';
 export function IconaIllustrazione({
   illustrazione, famiglia = 'ortofrutta', icone = [], tinta, dimensione = 220,
 }: {
-  illustrazione: string; famiglia?: 'ortofrutta' | 'animali';
+  illustrazione: string; famiglia?: Famiglia;
   icone?: string[]; tinta?: string; dimensione?: number;
 }) {
   const pos = ['pa-icon-illu__tl', 'pa-icon-illu__br'];

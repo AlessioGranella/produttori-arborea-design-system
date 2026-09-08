@@ -76,7 +76,11 @@ def main() -> int:
         print('serve potrace:  brew install potrace', file=sys.stderr)
         return 1
 
-    for famiglia in ('ortofrutta', 'animali'):
+    famiglie = sorted(
+        os.path.basename(d) for d in glob.glob(os.path.join(BRAND, 'illustrazioni', '*'))
+        if os.path.isdir(d)
+    )
+    for famiglia in famiglie:
         cartella = os.path.join(BRAND, 'illustrazioni', famiglia)
         os.makedirs(os.path.join(cartella, 'anteprima'), exist_ok=True)
         for png in sorted(glob.glob(os.path.join(cartella, '*.png'))):

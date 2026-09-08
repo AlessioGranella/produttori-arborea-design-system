@@ -31,6 +31,18 @@ export const cmyk: Record<keyof typeof colore, [number, number, number, number]>
   campagna: [100, 50, 100, 40], melanzana: [70, 100, 30, 30], carne: [30, 100, 80, 30],
 };
 
+/**
+ * Colore di progetto — Arbolat. Non è nella main palette del brandbook: nasce
+ * con il progetto «fattoria etica e sostenibile» e vale solo lì. Evoca il latte
+ * e l'acqua, ed è la tinta della goccia che sostituisce la O del marchio.
+ */
+export const arbolat = {
+  acqua:       '#29B8CE',
+  acquaChiaro: '#3DBBDC',
+  acquaTenue:  '#C3E4ED',
+  acquaScuro:  '#1E93A6',   // derivato, per gli stati
+} as const;
+
 /** Derivati per l'interfaccia — non stanno nel brandbook. */
 export const ui = {
   campagnaScuro: '#002E19', campagnaTenue: '#E4EDE8', campagnaBordo: '#B3C8BD',
@@ -43,7 +55,10 @@ export const ui = {
   grigio400: '#A9A29B', grigio600: '#6B645D',
 } as const;
 
-export type Segmento = 'arborea' | 'ortofrutta' | 'carni' | 'agrozoo';
+export type Segmento = 'arborea' | 'ortofrutta' | 'carni' | 'agrozoo' | 'arbolat';
+
+/** Le famiglie del repertorio illustrativo. */
+export type Famiglia = 'ortofrutta' | 'patate' | 'quarta-gamma' | 'cereali' | 'animali' | 'scene';
 
 /**
  * Palette di segmento — brandbook 4.2/4.3/4.4.
@@ -54,6 +69,7 @@ export const paletteSegmento: Record<Segmento, string[]> = {
   ortofrutta: [colore.foglia, colore.campagna, colore.arancio, colore.pomodoro, colore.oro, colore.melanzana, colore.sabbia, colore.notte],
   carni:      [colore.carne, colore.pomodoro, colore.oro, colore.argento, colore.legno, colore.sabbia, colore.notte],
   agrozoo:    [colore.oro, colore.campagna, colore.carne, colore.ferro, colore.legno, colore.sabbia, colore.notte],
+  arbolat:    [arbolat.acqua, colore.foglia, colore.campagna, colore.oro, arbolat.acquaTenue, colore.sabbia],
 };
 
 /** Serie colore per i grafici, in ordine di lettura. Massimo 6 serie. */
@@ -62,36 +78,43 @@ export const serieGrafico: Record<Segmento, string[]> = {
   ortofrutta: [colore.foglia, colore.campagna, colore.arancio, colore.pomodoro, colore.oro, colore.melanzana],
   carni:      [colore.carne, colore.pomodoro, colore.oro, colore.argento, colore.legno, colore.ferro],
   agrozoo:    [colore.oro, colore.carne, colore.campagna, colore.ferro, colore.legno, colore.argento],
+  arbolat:    [arbolat.acqua, colore.foglia, colore.campagna, colore.oro, arbolat.acquaTenue, colore.ferro],
 };
 
 /** I quattro marchi: concept, tema, logo, repertorio di immagini ammesso. */
 export const brand: Record<Segmento, {
   nome: string; segmento: string; tema: string; logo: string; logoMono: string;
-  concept: string; accento: string; illustrazioni: 'ortofrutta' | 'animali' | 'entrambe';
+  concept: string; accento: string; illustrazioni: Famiglia[]; payoff?: string;
 }> = {
   arborea: {
     nome: 'Produttori Arborea', segmento: 'La cooperativa', tema: '',
     logo: '/brand/loghi/produttori-arborea.svg', logoMono: '/brand/loghi/produttori-arborea-mono.svg',
     concept: 'Un bronzetto sardo per l’appartenenza, un toro per la fecondità, un frutto per la genuinità, una coccarda per la qualità.',
-    accento: colore.campagna, illustrazioni: 'entrambe',
+    accento: colore.campagna, illustrazioni: ['ortofrutta', 'animali', 'cereali', 'scene'],
   },
   ortofrutta: {
     nome: 'Primoverde', segmento: 'Ortofrutta', tema: 'theme-ortofrutta',
     logo: '/brand/loghi/primoverde-foglia.svg', logoMono: '/brand/loghi/primoverde-mono.svg',
     concept: 'La sintesi minimale di un frutto e una foglia: genuinità e freschezza.',
-    accento: colore.foglia, illustrazioni: 'ortofrutta',
+    accento: colore.foglia, illustrazioni: ['ortofrutta', 'patate', 'quarta-gamma'],
   },
   carni: {
     nome: 'Rossopregio', segmento: 'Carni', tema: 'theme-carni',
     logo: '/brand/loghi/rossopregio.svg', logoMono: '/brand/loghi/rossopregio-mono.svg',
     concept: 'Una iconica testa taurina in vista frontale: forza e fecondità.',
-    accento: colore.carne, illustrazioni: 'animali',
+    accento: colore.carne, illustrazioni: ['animali'],
   },
   agrozoo: {
     nome: 'Meridoro', segmento: 'Agrozootecnia', tema: 'theme-agrozoo',
     logo: '/brand/loghi/meridoro.svg', logoMono: '/brand/loghi/meridoro-mono.svg',
     concept: 'La sintesi minimale delle fasi lunari: la ciclicità del tempo naturale.',
-    accento: colore.oro, illustrazioni: 'animali',
+    accento: colore.oro, illustrazioni: ['animali', 'cereali'],
+  },
+  arbolat: {
+    nome: 'Arbolat', segmento: 'Progetto — fattoria etica e sostenibile', tema: 'theme-arbolat',
+    logo: '/brand/loghi/arbolat.svg', logoMono: '/brand/loghi/arbolat-mono.svg',
+    concept: 'Una goccia di latte al posto della O, un tetto sopra e la linea del suolo sotto: la stalla e ciò che ne esce.',
+    accento: arbolat.acqua, illustrazioni: ['scene', 'animali'], payoff: 'Fattoria etica e sostenibile',
   },
 };
 

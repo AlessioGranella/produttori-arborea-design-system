@@ -4,7 +4,7 @@ import { asset } from '../../asset';
 
 const SEGMENTI = [
   ['tutti', 'Tutti'], ['ortofrutta', 'Primoverde'], ['carni', 'Rossopregio'],
-  ['agrozoo', 'Meridoro'], ['corporate', 'Produttori Arborea'],
+  ['agrozoo', 'Meridoro'], ['arbolat', 'Arbolat'], ['corporate', 'Produttori Arborea'],
 ] as const;
 
 export function Galleria() {
