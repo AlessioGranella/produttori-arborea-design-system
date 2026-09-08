@@ -1,5 +1,6 @@
 import { colore, cmyk, paletteSegmento } from '../../tokens';
 import { Codice } from '../Codice';
+import { useCopia } from '../Copiabile';
 
 const NOMI = Object.keys(colore) as (keyof typeof colore)[];
 const CHIARI = new Set(['sabbia', 'argento', 'oro', 'foglia']);
@@ -25,6 +26,7 @@ const SEMANTICI = [
 ];
 
 export function Colore() {
+  const [copiato, copia] = useCopia();
   return (
     <>
       <section className="dx-section">
@@ -43,20 +45,36 @@ export function Colore() {
           Valori normativi. Oro e argento, in applicazioni eccezionali, possono diventare tinte
           metalliche o lamine: da valutare sui contrasti reali del materiale stampato.
         </p>
+        <p className="dx-suggerimento">
+          Clic sul colore per copiare l’esadecimale; clic sulla riga CMYK per copiare quella.
+        </p>
         <div className="dx-swatches">
-          {NOMI.map(n => (
-            <div className="dx-swatch" key={n}>
-              <div className="dx-swatch__chip" style={{
-                background: colore[n],
-                border: CHIARI.has(n) ? '1px solid rgba(0,0,0,.08)' : 'none',
-              }} />
-              <div className="dx-swatch__meta">
-                <strong>{n}</strong>
-                <code>{colore[n]}</code>
-                <code>cmyk {cmyk[n].join(',')}</code>
+          {NOMI.map(n => {
+            const hex = colore[n];
+            const cm = `cmyk(${cmyk[n].join(', ')})`;
+            return (
+              <div className="dx-swatch" key={n}>
+                <button
+                  type="button"
+                  className="dx-swatch__chip"
+                  style={{
+                    height: 68, background: hex,
+                    border: CHIARI.has(n) ? '1px solid rgba(0,0,0,.08)' : 'none',
+                  }}
+                  onClick={() => copia(hex)}
+                  aria-label={`Copia ${hex}, ${n}`}
+                />
+                <div className="dx-swatch__meta">
+                  <strong>{n}</strong>
+                  <code onClick={() => copia(hex)} role="button" tabIndex={0}
+                        onKeyDown={e => e.key === 'Enter' && copia(hex)}>{hex}</code>
+                  <code onClick={() => copia(cm)} role="button" tabIndex={0}
+                        onKeyDown={e => e.key === 'Enter' && copia(cm)}>cmyk {cmyk[n].join(',')}</code>
+                </div>
+                {(copiato === hex || copiato === cm) && <span className="dx-copiato">copiato</span>}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -66,7 +84,12 @@ export function Colore() {
           <p>{s.nota}</p>
           <div className="dx-row" style={{ gap: 0, borderRadius: 'var(--pa-radius-m)', overflow: 'hidden' }}>
             {paletteSegmento[s.k].map((c, i) => (
-              <div key={c + i} style={{ background: c, height: 84, flex: i === 0 ? 2 : 1, minWidth: 60 }} />
+              // una linea sottile fra i campioni: senza, la sabbia sparisce sul fondo chiaro
+              <button key={c + i} type="button" onClick={() => copia(c)} aria-label={`Copia ${c}`}
+                      title={c}
+                      style={{ background: c, height: 84, flex: i === 0 ? 2 : 1, minWidth: 60,
+                               border: 0, borderLeft: i ? '1px solid rgba(0,14,30,.12)' : 0,
+                               padding: 0, cursor: 'copy' }} />
             ))}
           </div>
           <p className="pa-caption">Il primo è il protagonista; l’ordine è quello di lettura.</p>

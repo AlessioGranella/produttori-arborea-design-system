@@ -1,4 +1,6 @@
 import { Codice } from '../Codice';
+import { Scarica, ScaricaTutto } from '../Scarica';
+import { asset } from '../../asset';
 
 const GERARCHIA = [
   ['Header', 'Fredoka medium', '150 pt', '180 pt', 'X'],
@@ -31,15 +33,38 @@ export function Tipografia() {
           </p>
         </div>
 
+        <div className="dx-scarica">
+          <ScaricaTutto pacchetto="font" etichetta="Scarica i caratteri" peso="2 MB" />
+          <span className="pa-caption">
+            Font variabili in TTF da installare, subset latini in WOFF2 per il web, licenza
+            SIL Open Font 1.1 inclusa: entrambi si possono usare e ridistribuire anche in
+            progetti commerciali.
+          </span>
+        </div>
+
         <div className="dx-demo dx-demo--sabbia">
-          <p className="pa-caption">Fredoka — head font</p>
+          <div className="dx-row" style={{ justifyContent: 'space-between', alignItems: 'baseline' }}>
+            <p className="pa-caption" style={{ margin: 0 }}>Fredoka — head font · variabile, peso 300–600</p>
+            <span className="dx-dl">
+              <a className="dx-dl__link" download href={asset('brand/font/Fredoka[wdth,wght].ttf')}>TTF</a>
+              <a className="dx-dl__link" download href={asset('brand/font/fredoka-latin.woff2')}>WOFF2</a>
+            </span>
+          </div>
           <div style={{ fontFamily: 'var(--pa-font-display)', fontWeight: 500, fontSize: 40, color: 'var(--pa-campagna)' }}>
             ABCDEFGHIJKLMNOPQRSTUVXYWZ
           </div>
           <div style={{ fontFamily: 'var(--pa-font-display)', fontWeight: 300, fontSize: 40, color: 'var(--pa-campagna)' }}>
             abcdefghijklmnopqrstuvxywz 0123456789
           </div>
-          <p className="pa-caption" style={{ marginTop: 'var(--pa-space-l)' }}>Roboto Flex — body font</p>
+          <div className="dx-row" style={{ justifyContent: 'space-between', alignItems: 'baseline',
+                                            marginTop: 'var(--pa-space-l)' }}>
+            <p className="pa-caption" style={{ margin: 0 }}>Roboto Flex — body font · variabile, peso 300–500</p>
+            <span className="dx-dl">
+              <a className="dx-dl__link" download
+                 href={asset('brand/font/RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf')}>TTF</a>
+              <a className="dx-dl__link" download href={asset('brand/font/robotoflex-latin.woff2')}>WOFF2</a>
+            </span>
+          </div>
           <div style={{ fontFamily: 'var(--pa-font-text)', fontWeight: 500, fontSize: 28 }}>
             ABCDEFGHIJKLMNOPQRSTUVXYWZ
           </div>

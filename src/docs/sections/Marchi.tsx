@@ -3,6 +3,7 @@ import { Lockup } from '../../components/Lockup';
 import { Logo } from '../../components/Logo';
 import { Codice } from '../Codice';
 import { ScaricaTutto } from '../Scarica';
+import { GrigliaLoghi } from '../GrigliaLoghi';
 import { asset } from '../../asset';
 
 const ORDINE: Segmento[] = ['arborea', 'ortofrutta', 'carni', 'agrozoo'];
@@ -127,11 +128,20 @@ export function Marchi() {
           })}
         </div>
 
+        <h3>I file</h3>
+        <p>
+          Ogni logo esiste in <strong>SVG</strong> vettoriale e in <strong>PNG a 2048 px</strong>,
+          quest’ultimo in tre versioni: a colori, nero e bianco. Il bianco è quello da usare in
+          negativo su fondo pieno o su fotografia scura. Tutti a fondo trasparente. Accanto
+          all’SVG a colori c’è anche la variante <code>-mono</code>, che eredita il colore dal
+          CSS ed è quella da cui il sistema ricava le tinte.
+        </p>
         <div className="dx-scarica">
-          <ScaricaTutto pacchetto="loghi" etichetta="Tutti i logo in SVG" peso="80 KB" />
-          <span className="pa-caption">Vettoriali, fondo trasparente, con variante «-mono» tintabile.</span>
+          <ScaricaTutto pacchetto="loghi" etichetta="Tutti i logo, tutti i formati" peso="1,6 MB" />
         </div>
-        <h3>Positivo e negativo</h3>
+        <GrigliaLoghi />
+
+        <h3 style={{ marginTop: 'var(--pa-space-2xl)' }}>Positivo e negativo</h3>
         <div className="pa-grid">
           <div className="pa-col-6">
             <div className="dx-demo" style={{ background: 'var(--pa-sabbia)' }}>

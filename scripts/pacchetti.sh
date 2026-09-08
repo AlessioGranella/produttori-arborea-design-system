@@ -19,7 +19,8 @@ pacchetto icone-png          $(cd $B && ls icone/*.png)
 pacchetto illustrazioni-svg  illustrazioni --include '*.svg'
 pacchetto illustrazioni-png  illustrazioni --include '*.png'
 pacchetto loghi              loghi
+pacchetto font               font
 pacchetto texture            texture
-pacchetto produttori-arborea-asset icone loghi texture illustrazioni
+pacchetto produttori-arborea-asset icone loghi texture illustrazioni font
 
 echo "archivi pronti in $OUT"

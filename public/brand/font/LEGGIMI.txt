@@ -1,0 +1,41 @@
+PRODUTTORI ARBOREA — Caratteri del brand
+========================================
+
+Fredoka      titoli, etichette brevi, call to action.  Pesi: Light 300 → SemiBold 600.
+Roboto Flex  testi correnti, tabelle, note.            Pesi: Light 300 → Medium 500.
+
+La divisione è netta: Fredoka non scende sotto il livello del titolo,
+Roboto Flex non sale mai a fare da titolo.
+
+CONTENUTO
+---------
+Fredoka[wdth,wght].ttf        variabile, da installare sul sistema (macOS, Windows,
+                              Adobe CC, Figma desktop)
+RobotoFlex[...].ttf           variabile, come sopra
+fredoka-latin.woff2           subset latino, per il web (self-hosting)
+robotoflex-latin.woff2        subset latino, per il web
+
+INSTALLAZIONE
+-------------
+macOS    doppio clic sul .ttf → «Installa font»
+Windows  tasto destro sul .ttf → «Installa»
+
+Sono font variabili: in Illustrator, InDesign e Figma trovi un cursore per
+peso e larghezza invece dei singoli tagli.
+
+USO SUL WEB
+-----------
+Il design system li carica da Google Fonts. Per il self-hosting usa i .woff2:
+
+  @font-face {
+    font-family: 'Fredoka';
+    src: url('fredoka-latin.woff2') format('woff2');
+    font-weight: 300 600;
+    font-display: swap;
+  }
+
+LICENZA
+-------
+Entrambi sono rilasciati sotto SIL Open Font License 1.1: si possono usare,
+modificare e ridistribuire, anche in progetti commerciali, tenendo il file di
+licenza. Il testo completo è in OFL-Fredoka.txt e OFL-RobotoFlex.txt.

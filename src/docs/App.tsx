@@ -6,6 +6,7 @@ import { Tipografia } from './sections/Tipografia';
 import { SpazioGriglia } from './sections/SpazioGriglia';
 import { Marchi } from './sections/Marchi';
 import { Asset } from './sections/Asset';
+import { Galleria } from './sections/Galleria';
 import { Componenti } from './sections/Componenti';
 import { Impaginati } from './sections/Impaginati';
 
@@ -19,6 +20,7 @@ const NAV = [
   { gruppo: 'Marca', voci: [
       { id: 'marchi', label: 'I quattro marchi', el: <Marchi /> },
       { id: 'asset', label: 'Icone, illustrazioni, texture', el: <Asset /> },
+      { id: 'galleria', label: 'Galleria', el: <Galleria /> },
   ]},
   { gruppo: 'Costruire', voci: [
       { id: 'componenti', label: 'Componenti', el: <Componenti /> },
