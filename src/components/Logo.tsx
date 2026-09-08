@@ -1,4 +1,5 @@
 import { brand, type Segmento } from '../tokens';
+import { asset } from '../asset';
 
 /**
  * Logo di marchio.
@@ -15,7 +16,7 @@ export function Logo({
   const h = typeof altezza === 'number' ? `${altezza}px` : altezza;
 
   if (!tinta) {
-    return <img src={`.${b.logo}`} alt={b.nome} style={{ height: h, width: 'auto', display: 'block' }} />;
+    return <img src={asset(b.logo)} alt={b.nome} style={{ height: h, width: 'auto', display: 'block' }} />;
   }
   return (
     <span
@@ -24,7 +25,7 @@ export function Logo({
       style={{
         display: 'block', height: h, width: '100%',
         backgroundColor: tinta,
-        WebkitMaskImage: `url(.${b.logoMono})`, maskImage: `url(.${b.logoMono})`,
+        WebkitMaskImage: `url(${asset(b.logoMono)})`, maskImage: `url(${asset(b.logoMono)})`,
         WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat',
         WebkitMaskSize: 'contain', maskSize: 'contain',
         WebkitMaskPosition: 'center', maskPosition: 'center',

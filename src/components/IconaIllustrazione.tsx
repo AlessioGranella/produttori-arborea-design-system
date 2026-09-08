@@ -1,4 +1,5 @@
 import { Illustrazione } from './Illustrazione';
+import { asset } from '../asset';
 
 /**
  * Icona + illustrazione — brandbook 6.2. La geometria minimale si sovrappone
@@ -16,7 +17,7 @@ export function IconaIllustrazione({
     <span className="pa-icon-illu" style={{ width: dimensione, height: dimensione }}>
       <Illustrazione nome={illustrazione} famiglia={famiglia} tinta={tinta} altezza={dimensione} />
       {icone.slice(0, 2).map((n, i) => (
-        <img key={n} className={pos[i]} src={`./brand/icone/${n}.svg`} alt="" />
+        <img key={n} className={pos[i]} src={asset(`brand/icone/${n}.svg`)} alt="" />
       ))}
     </span>
   );

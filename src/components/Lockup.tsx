@@ -1,4 +1,5 @@
 import { brand, endorserRatio, type Segmento } from '../tokens';
+import { asset } from '../asset';
 
 /**
  * Marchio di segmento con l'endorser Produttori Arborea sotto.
@@ -11,8 +12,8 @@ export function Lockup({
   const b = brand[marchio];
   return (
     <span className="pa-lockup" style={{ ['--pa-lockup-w' as string]: `${larghezza}px` }}>
-      <img className="pa-lockup__brand" src={`.${b.logo}`} alt={b.nome} />
-      <img className="pa-lockup__endorser" src={`.${brand.arborea.logo}`}
+      <img className="pa-lockup__brand" src={asset(b.logo)} alt={b.nome} />
+      <img className="pa-lockup__endorser" src={asset(brand.arborea.logo)}
            alt="Produttori Arborea"
            style={{ width: `${larghezza / endorserRatio}px` }} />
     </span>

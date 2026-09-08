@@ -1,4 +1,5 @@
 export * from './tokens';
+export { asset, assetUrl } from './asset';
 export { Bottone } from './components/Bottone';
 export { Chip } from './components/Chip';
 export { Numero } from './components/Numero';

@@ -1,6 +1,7 @@
 import { colore } from '../../tokens';
 import { Illustrazione } from '../../components/Illustrazione';
 import { Logo } from '../../components/Logo';
+import { asset, assetUrl } from '../../asset';
 
 /* Mini-anteprime in scala: mostrano la struttura, non sono esecutive.
    A4 verticale per i cataloghi, 16:9 per il corporate, quadrato per il social. */
@@ -21,7 +22,7 @@ const Righe = ({ n = 4, col = 'rgba(0,14,30,.22)', w = '100%' }: { n?: number; c
   </div>
 );
 const Icone = ({ nomi, h = 11 }: { nomi: string[]; h?: number }) => (
-  <>{nomi.map(n => <img key={n} src={`./brand/icone/${n}.svg`} alt="" style={{ height: h }} />)}</>
+  <>{nomi.map(n => <img key={n} src={asset(`brand/icone/${n}.svg`)} alt="" style={{ height: h }} />)}</>
 );
 
 export function Impaginati() {
@@ -66,13 +67,13 @@ export function Impaginati() {
                   <Icone nomi={['carota', 'pomodoro', 'uva', 'agrume-sezione', 'patata', 'foglia', 'pera', 'fragola']} />
                 </div>
                 <div style={{ position: 'absolute', inset: '40% 16% auto', textAlign: 'center' }}>
-                  <img src="./brand/loghi/primoverde-foglia.svg" alt="" style={{ width: '100%' }} />
+                  <img src={asset('brand/loghi/primoverde-foglia.svg')} alt="" style={{ width: '100%' }} />
                   <div style={{ color: colore.foglia, letterSpacing: '.1em', fontSize: 6, marginTop: 6 }}>LINEA DEL FRESCO</div>
                 </div>
                 <div style={{ position: 'absolute', left: '-14%', bottom: '-6%' }}>
                   <Illustrazione nome="fragola" tinta={colore.campagna} altezza={88} opacita={.9} />
                 </div>
-                <img src="./brand/loghi/produttori-arborea.svg" alt=""
+                <img src={asset('brand/loghi/produttori-arborea.svg')} alt=""
                      style={{ position: 'absolute', bottom: '4%', left: '50%', transform: 'translateX(-50%)', width: '20%' }} />
               </Pagina>
               <p className="pa-caption">1 · Copertina — icone, lockup 5:1, illustrazione a vivo</p>
@@ -166,7 +167,7 @@ export function Impaginati() {
               <Pagina bg={colore.oro}>
                 <div className="pa-texture" style={{
                   position: 'absolute', inset: '0 0 55% 0', background: colore.carne,
-                  ['--pa-texture-src' as string]: 'url(./brand/texture/icone-agrozoo.svg)',
+                  ['--pa-texture-src' as string]: assetUrl('brand/texture/icone-agrozoo.svg'),
                   ['--pa-texture-size' as string]: '46px', ['--pa-texture-opacity' as string]: '.18',
                 }}>
                   <div style={{ position: 'absolute', inset: '24% 12% auto', color: colore.oro,
@@ -180,7 +181,7 @@ export function Impaginati() {
                 <div style={{ position: 'absolute', left: '8%', bottom: '10%' }}>
                   <Illustrazione nome="bovino" famiglia="animali" tinta={colore.notte} altezza={40} />
                 </div>
-                <img src="./brand/loghi/produttori-arborea.svg" alt=""
+                <img src={asset('brand/loghi/produttori-arborea.svg')} alt=""
                      style={{ position: 'absolute', bottom: '4%', left: '50%', transform: 'translateX(-50%)', width: '18%' }} />
               </Pagina>
               <p className="pa-caption">1 · Copertina — blocco carne su oro, illustrazione animale</p>
@@ -276,7 +277,7 @@ export function Impaginati() {
               <Pagina ratio="16 / 9" bg={colore.campagna}>
                 <div className="pa-texture" style={{
                   position: 'absolute', right: 0, top: 0, bottom: 0, width: '34%',
-                  ['--pa-texture-src' as string]: 'url(./brand/texture/icone-rada.svg)',
+                  ['--pa-texture-src' as string]: assetUrl('brand/texture/icone-rada.svg'),
                   ['--pa-texture-size' as string]: '58px', ['--pa-texture-opacity' as string]: '.3',
                 }} />
                 <div style={{ position: 'absolute', left: '8%', top: '34%', width: '38%' }}>
@@ -323,7 +324,7 @@ export function Impaginati() {
                 <div style={{ position: 'absolute', inset: '0 0 0 58%', background: colore.foglia }} />
                 <div style={{ position: 'absolute', inset: '16% auto auto 8%', width: '44%' }}>
                   <div style={{ color: colore.campagna, fontFamily: 'var(--pa-font-display)', fontSize: 11, marginBottom: 8 }}>I nostri brand</div>
-                  <img src="./brand/loghi/primoverde-foglia.svg" alt="" style={{ width: '52%', marginBottom: 8 }} />
+                  <img src={asset('brand/loghi/primoverde-foglia.svg')} alt="" style={{ width: '52%', marginBottom: 8 }} />
                   <Righe n={7} />
                 </div>
               </Pagina>
@@ -384,7 +385,7 @@ export function Impaginati() {
                               borderRadius: '50%', background: colore.carne }} />
                 <div style={{ position: 'absolute', right: '-12%', bottom: '-14%', width: '56%', aspectRatio: 1,
                               borderRadius: '50%', background: colore.carne }} />
-                <img src="./brand/loghi/rossopregio.svg" alt=""
+                <img src={asset('brand/loghi/rossopregio.svg')} alt=""
                      style={{ position: 'absolute', left: '10%', top: '38%', width: '46%' }} />
                 <div style={{ position: 'absolute', right: '8%', top: '16%', width: '40%', aspectRatio: 1,
                               borderRadius: '50%', background: colore.sabbia, display: 'grid', placeItems: 'center',
@@ -406,7 +407,7 @@ export function Impaginati() {
               <Pagina ratio="4 / 5" bg={colore.campagna}>
                 <div style={{ position: 'absolute', right: '-16%', top: '10%', width: '62%', height: '70%',
                               borderRadius: '50%', background: colore.sabbia }} />
-                <img src="./brand/loghi/meridoro.svg" alt=""
+                <img src={asset('brand/loghi/meridoro.svg')} alt=""
                      style={{ position: 'absolute', left: '8%', top: '16%', width: '48%' }} />
                 <div style={{ position: 'absolute', inset: '34% auto auto 8%', width: '46%' }}>
                   <Righe n={4} col="rgba(255,247,241,.55)" />

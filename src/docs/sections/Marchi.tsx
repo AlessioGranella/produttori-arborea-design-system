@@ -2,6 +2,7 @@ import { brand, misureMinime, paletteSegmento, type Segmento } from '../../token
 import { Lockup } from '../../components/Lockup';
 import { Logo } from '../../components/Logo';
 import { Codice } from '../Codice';
+import { asset } from '../../asset';
 
 const ORDINE: Segmento[] = ['arborea', 'ortofrutta', 'carni', 'agrozoo'];
 
@@ -111,7 +112,7 @@ export function Marchi() {
             return (
               <div className="pa-col-4" key={f as string}>
                 <div className="dx-demo" style={{ display: 'grid', gap: 'var(--pa-space-m)', justifyItems: 'center' }}>
-                  <img src={`./brand/loghi/${f}.svg`} alt="" style={{ height: 64 }} />
+                  <img src={asset(`brand/loghi/${f}.svg`)} alt="" style={{ height: 64 }} />
                   <div style={{ textAlign: 'center' }}>
                     <strong>{nome as string}</strong>
                     <p className="pa-caption" style={{ margin: 0 }}>
@@ -130,7 +131,7 @@ export function Marchi() {
           <div className="pa-col-6">
             <div className="dx-demo" style={{ background: 'var(--pa-sabbia)' }}>
               <p className="pa-caption">Positivo su sabbia — l’uso normale</p>
-              <img src="./brand/loghi/produttori-arborea.svg" alt="" style={{ height: 56 }} />
+              <img src={asset('brand/loghi/produttori-arborea.svg')} alt="" style={{ height: 56 }} />
             </div>
           </div>
           <div className="pa-col-6">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { asset } from '../asset';
 import { Inizio } from './sections/Inizio';
 import { Colore } from './sections/Colore';
 import { Tipografia } from './sections/Tipografia';
@@ -47,7 +48,7 @@ export function App() {
     <div className="dx">
       <nav className="dx-nav">
         <div className="dx-nav__brand">
-          <img src="./brand/loghi/produttori-arborea-mono.svg" alt="Produttori Arborea" />
+          <img src={asset('brand/loghi/produttori-arborea-mono.svg')} alt="Produttori Arborea" />
           <small>Design System</small>
         </div>
         {NAV.map(g => (

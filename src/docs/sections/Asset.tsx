@@ -3,6 +3,7 @@ import { Illustrazione } from '../../components/Illustrazione';
 import { IconaIllustrazione } from '../../components/IconaIllustrazione';
 import { colore } from '../../tokens';
 import { Codice } from '../Codice';
+import { asset, assetUrl } from '../../asset';
 
 const TINTE = [
   ['campagna', colore.campagna], ['foglia', colore.foglia],
@@ -35,7 +36,7 @@ export function Asset() {
         <div className="dx-tiles">
           {manifest.icone.map(n => (
             <div className="dx-tile" key={n}>
-              <img src={`./brand/icone/${n}.svg`} alt={n} />
+              <img src={asset(`brand/icone/${n}.svg`)} alt={n} />
               <span>{n}</span>
             </div>
           ))}
@@ -56,7 +57,7 @@ export function Asset() {
               <div style={{ borderRadius: 'var(--pa-radius-l)', overflow: 'hidden', border: '1px solid var(--pa-border)' }}>
                 <div className="pa-texture" style={{
                   height: 170, background: 'var(--pa-sabbia)',
-                  ['--pa-texture-src' as string]: `url(./brand/texture/${n}.svg)`,
+                  ['--pa-texture-src' as string]: assetUrl(`brand/texture/${n}.svg`),
                   ['--pa-texture-size' as string]: n.includes('fitta') ? '90px' : '120px',
                   ['--pa-texture-opacity' as string]: '1',
                 }} />

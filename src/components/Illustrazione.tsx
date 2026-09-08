@@ -1,3 +1,5 @@
+import { assetUrl } from '../asset';
+
 /**
  * Illustrazione a incisione, tinta a piacere.
  * I master sono PNG neri con canale alfa: il colore arriva dalla maschera CSS,
@@ -9,7 +11,7 @@ export function Illustrazione({
   nome: string; famiglia?: 'ortofrutta' | 'animali';
   tinta?: string; altezza?: number | string; opacita?: number; className?: string;
 }) {
-  const src = `url(/brand/illustrazioni/${famiglia}/${nome}.png)`;
+  const src = assetUrl(`brand/illustrazioni/${famiglia}/${nome}.png`);
   return (
     <span
       className={`pa-illu ${className}`}
