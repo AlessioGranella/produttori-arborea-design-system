@@ -35,7 +35,7 @@ export function Asset() {
           </p>
         </div>
         <div className="dx-scarica">
-          <ScaricaTutto pacchetto="produttori-arborea-asset" etichetta="Scarica tutti gli asset" peso="60 MB" />
+          <ScaricaTutto pacchetto="produttori-arborea-asset" etichetta="Scarica tutti gli asset" peso="63,8 MB" />
           <span className="pa-caption">
             Icone e illustrazioni sono disponibili sia in SVG vettoriale sia in PNG con
             trasparenza. Ogni tessera qui sotto ha i suoi due link.
@@ -163,6 +163,42 @@ export function Asset() {
   --pa-illu-src: url(/brand/illustrazioni/ortofrutta/carota.png);
   --pa-illu-tint: var(--pa-foglia);
   width: 240px; height: 240px"></span>`}</Codice>
+      </section>
+
+
+      <section className="dx-section">
+        <h2>Paesaggi</h2>
+        <p>
+          Il fondo delle campagne: colline incise a due sole tinte, con la velatura che porta
+          il basso alla tinta piena, dove poi si appoggiano titolo e lockup. Primoverde le ha
+          in foglia e campagna, verticale e orizzontale; Meridoro nella coppia di ori, con il
+          bestiame al pascolo al posto dei campi coltivati.
+        </p>
+        <p className="pa-small">
+          L’SVG è una <strong>vettorializzazione</strong>: il tratteggio è un tracciato reale e
+          la velatura un gradiente, quindi il file scala a qualsiasi dimensione — utile per
+          billboard e stand. Il PNG resta il master di riferimento.
+        </p>
+        <div className="dx-scarica">
+          <ScaricaTutto pacchetto="paesaggi" etichetta="Paesaggi in SVG e PNG" peso="3,3 MB" />
+        </div>
+        <div className="pa-grid">
+          {manifest.paesaggi.map(n => (
+            <div className={n.includes('verticale') ? 'pa-col-4' : 'pa-col-6'} key={n}>
+              <figure style={{ margin: 0 }}>
+                <img src={asset(`brand/paesaggi/anteprima/${n}.png`)} alt={n}
+                     style={{ width: '100%', display: 'block', borderRadius: 'var(--pa-radius-m)',
+                              border: '1px solid var(--pa-border)' }} />
+                <figcaption className="pa-caption"
+                            style={{ display: 'flex', justifyContent: 'space-between',
+                                     alignItems: 'baseline', paddingTop: 'var(--pa-space-xs)' }}>
+                  {n.replace('paesaggio-', '')}
+                  <Scarica base={`brand/paesaggi/${n}`} />
+                </figcaption>
+              </figure>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="dx-section">

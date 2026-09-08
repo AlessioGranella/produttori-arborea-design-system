@@ -21,6 +21,7 @@ pacchetto illustrazioni-png  illustrazioni --include '*.png'
 pacchetto loghi              loghi
 pacchetto font               font
 pacchetto texture            texture
-pacchetto produttori-arborea-asset icone loghi texture illustrazioni font
+pacchetto paesaggi           paesaggi
+pacchetto produttori-arborea-asset icone loghi texture illustrazioni paesaggi font
 
 echo "archivi pronti in $OUT"

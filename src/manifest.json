@@ -111,5 +111,10 @@
       "stalle-moderne",
       "visita-guidata"
     ]
-  }
+  },
+  "paesaggi": [
+    "paesaggio-meridoro",
+    "paesaggio-orizzontale",
+    "paesaggio-verticale"
+  ]
 }
