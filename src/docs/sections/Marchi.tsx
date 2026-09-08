@@ -1,5 +1,6 @@
 import { brand, misureMinime, paletteSegmento, type Segmento } from '../../tokens';
 import { Lockup } from '../../components/Lockup';
+import { Logo } from '../../components/Logo';
 import { Codice } from '../Codice';
 
 const ORDINE: Segmento[] = ['arborea', 'ortofrutta', 'carni', 'agrozoo'];
@@ -135,8 +136,7 @@ export function Marchi() {
           <div className="pa-col-6">
             <div className="dx-demo" style={{ background: 'var(--pa-campagna)', color: 'var(--pa-sabbia)' }}>
               <p className="pa-caption" style={{ color: 'var(--pa-argento)' }}>Negativo — variante mono, colore da CSS</p>
-              <img src="./brand/loghi/produttori-arborea-mono.svg" alt=""
-                   style={{ height: 56, filter: 'brightness(0) invert(1)' }} />
+              <Logo altezza={56} tinta="var(--pa-sabbia)" />
             </div>
           </div>
         </div>

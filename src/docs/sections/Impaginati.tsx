@@ -1,5 +1,6 @@
 import { colore } from '../../tokens';
 import { Illustrazione } from '../../components/Illustrazione';
+import { Logo } from '../../components/Logo';
 
 /* Mini-anteprime in scala: mostrano la struttura, non sono esecutive.
    A4 verticale per i cataloghi, 16:9 per il corporate, quadrato per il social. */
@@ -68,8 +69,8 @@ export function Impaginati() {
                   <img src="./brand/loghi/primoverde-foglia.svg" alt="" style={{ width: '100%' }} />
                   <div style={{ color: colore.foglia, letterSpacing: '.1em', fontSize: 6, marginTop: 6 }}>LINEA DEL FRESCO</div>
                 </div>
-                <div style={{ position: 'absolute', left: -12, bottom: -8 }}>
-                  <Illustrazione nome="fragola" tinta={colore.campagna} altezza={72} />
+                <div style={{ position: 'absolute', left: '-14%', bottom: '-6%' }}>
+                  <Illustrazione nome="fragola" tinta={colore.campagna} altezza={88} opacita={.9} />
                 </div>
                 <img src="./brand/loghi/produttori-arborea.svg" alt=""
                      style={{ position: 'absolute', bottom: '4%', left: '50%', transform: 'translateX(-50%)', width: '20%' }} />
@@ -110,15 +111,15 @@ export function Impaginati() {
 
             <div>
               <Pagina bg={colore.campagna}>
-                <img src="./brand/loghi/primoverde-mono.svg" alt=""
-                     style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
-                              width: '56%', filter: 'brightness(0) invert(1)' }} />
+                <div style={{ position: 'absolute', top: '20%', left: '22%', width: '56%' }}>
+                  <Logo marchio="ortofrutta" altezza={26} tinta={colore.sabbia} />
+                </div>
                 <div style={{ position: 'absolute', inset: 'auto 20% 20%', display: 'flex', flexWrap: 'wrap', gap: 5, justifyContent: 'center' }}>
                   <Icone nomi={['carota', 'foglia', 'pomodoro', 'semi', 'pera', 'uva']} h={10} />
                 </div>
-                <img src="./brand/loghi/produttori-arborea-mono.svg" alt=""
-                     style={{ position: 'absolute', bottom: '5%', left: '50%', transform: 'translateX(-50%)',
-                              width: '22%', filter: 'brightness(0) invert(1)' }} />
+                <div style={{ position: 'absolute', bottom: '5%', left: '39%', width: '22%' }}>
+                  <Logo altezza={11} tinta={colore.sabbia} />
+                </div>
               </Pagina>
               <p className="pa-caption">12 · Retro — negativo su campagna, firma della cooperativa</p>
             </div>
@@ -173,9 +174,9 @@ export function Impaginati() {
                     I nostri mangimi<br />per i tuoi bovini
                   </div>
                 </div>
-                <img src="./brand/loghi/meridoro.svg" alt=""
-                     style={{ position: 'absolute', top: '56%', left: '12%', width: '58%',
-                              filter: 'brightness(0) saturate(100%) invert(11%) sepia(45%) saturate(3800%) hue-rotate(337deg)' }} />
+                <div style={{ position: 'absolute', top: '56%', left: '12%', width: '58%' }}>
+                  <Logo marchio="agrozoo" altezza={13} tinta={colore.carne} />
+                </div>
                 <div style={{ position: 'absolute', left: '8%', bottom: '10%' }}>
                   <Illustrazione nome="bovino" famiglia="animali" tinta={colore.notte} altezza={40} />
                 </div>
@@ -278,9 +279,9 @@ export function Impaginati() {
                   ['--pa-texture-src' as string]: 'url(./brand/texture/icone-rada.svg)',
                   ['--pa-texture-size' as string]: '58px', ['--pa-texture-opacity' as string]: '.3',
                 }} />
-                <img src="./brand/loghi/produttori-arborea-mono.svg" alt=""
-                     style={{ position: 'absolute', left: '8%', top: '34%', width: '38%',
-                              filter: 'brightness(0) invert(1)' }} />
+                <div style={{ position: 'absolute', left: '8%', top: '34%', width: '38%' }}>
+                  <Logo altezza={22} tinta={colore.oro} />
+                </div>
               </Pagina>
               <p className="pa-caption">1 · Copertina — campagna pieno, marchio in negativo, texture sul lato</p>
             </div>
@@ -365,9 +366,9 @@ export function Impaginati() {
                 <div style={{ position: 'absolute', right: '14%', top: '14%', width: '38%', aspectRatio: 1,
                               borderRadius: '50%', background: colore.pomodoro }} />
                 <div style={{ position: 'absolute', inset: 'auto 18% 22%' }}><Righe n={3} col="rgba(255,255,255,.55)" /></div>
-                <img src="./brand/loghi/produttori-arborea-mono.svg" alt=""
-                     style={{ position: 'absolute', bottom: '7%', left: '50%', transform: 'translateX(-50%)',
-                              width: '24%', filter: 'brightness(0) invert(1)' }} />
+                <div style={{ position: 'absolute', bottom: '7%', left: '38%', width: '24%' }}>
+                  <Logo altezza={12} tinta={colore.sabbia} />
+                </div>
               </Pagina>
               <p className="pa-caption">
                 <strong>Primoverde.</strong> Fondo a due toni, foglia sopra e campagna sotto, separati
@@ -464,9 +465,9 @@ export function Impaginati() {
             {[colore.campagna, colore.carne, colore.pomodoro, colore.melanzana, colore.foglia, colore.arancio].map(c => (
               <div key={c}>
                 <Pagina ratio="85 / 55" bg={c}>
-                  <img src="./brand/loghi/produttori-arborea-mono.svg" alt=""
-                       style={{ position: 'absolute', left: '10%', top: '16%', width: '52%',
-                                filter: 'brightness(0) invert(1)' }} />
+                  <div style={{ position: 'absolute', left: '10%', top: '16%', width: '52%' }}>
+                    <Logo altezza={16} tinta={colore.sabbia} />
+                  </div>
                 </Pagina>
               </div>
             ))}
