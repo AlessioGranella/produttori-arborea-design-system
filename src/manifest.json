@@ -118,6 +118,15 @@
     "paesaggio-verticale"
   ],
   "soggetti": [
-    "anguria-sugar-mano"
+    "anguria-sugar-mano",
+    "spunta-campagna"
+  ],
+  "soggetti_erba_medica": [
+    "balletta-35kg",
+    "ballette-accatastate",
+    "ballette-accatastate-tondo",
+    "ballone-12-ballette",
+    "erba-medica-in-mano",
+    "erba-medica-in-mano-tondo"
   ]
 }
