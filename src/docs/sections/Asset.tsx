@@ -111,7 +111,7 @@ export function Asset() {
       <section className="dx-section">
         <h2>Illustrazioni</h2>
         <p>
-          Trentadue soggetti — ventiquattro di ortofrutta, otto di animali — al tratto e sempre
+          Trentatré soggetti — ventiquattro di ortofrutta, nove di animali — al tratto e sempre
           monocromatici. Ogni soggetto esiste in due formati: <strong>SVG vettoriale</strong>,
           per la stampa e per ogni ingrandimento, e <strong>PNG con trasparenza</strong>, per il
           digitale e per il montaggio veloce. In entrambi il tratto è nero: il colore si dà dopo.
