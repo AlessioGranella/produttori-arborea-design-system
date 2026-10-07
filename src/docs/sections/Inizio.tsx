@@ -39,7 +39,7 @@ export function Inizio() {
         {[
           ['Fondamenta', 'Colore, tipografia, spazio, griglia: i valori normativi del brandbook, più i derivati che servono all’interfaccia.'],
           ['Marca', 'I quattro marchi con i loro logo vettoriali, la regola di endorsement, e il repertorio di icone, illustrazioni e texture.'],
-          ['Costruire', 'I componenti pronti e le ricette di impaginato, una per famiglia di materiali.'],
+          ['Costruire', 'I componenti pronti, le ricette di impaginato e i template da cui partono i materiali ricorrenti.'],
         ].map(([t, d]) => (
           <div className="pa-col-4 pa-card" key={t}>
             <h3 style={{ fontSize: '1.25rem' }}>{t}</h3><p className="pa-small">{d}</p>

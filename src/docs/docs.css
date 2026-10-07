@@ -157,3 +157,29 @@
 .dx-lightbox img { max-width: min(1200px, 92vw); max-height: 82vh; border-radius: var(--pa-radius-m); }
 .dx-lightbox p { color: var(--pa-sabbia); text-align: center; margin: 0; }
 .dx-lightbox p span { color: var(--pa-argento); }
+
+/* --------------------------------------------------------------- TEMPLATE */
+.dx-template { display: grid; gap: var(--pa-space-l); }
+.dx-tpl {
+  display: grid; grid-template-columns: minmax(180px, 260px) 1fr; gap: var(--pa-space-xl);
+  background: var(--pa-bianco); border: 1px solid var(--pa-border);
+  border-radius: var(--pa-radius-l); padding: var(--pa-space-l);
+}
+.dx-tpl__anteprime { display: grid; gap: var(--pa-space-xs); align-content: start; }
+.dx-tpl button { padding: 0; border: 1px solid var(--pa-border); background: var(--pa-grigio-100);
+  border-radius: var(--pa-radius-m); overflow: hidden; cursor: zoom-in; line-height: 0; }
+.dx-tpl button:hover { border-color: var(--pa-accent-border); }
+.dx-tpl__cover img { width: 100%; height: auto; max-height: 420px; object-fit: contain; display: block; }
+.dx-tpl__pagine { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: var(--pa-space-xs); }
+.dx-tpl__pagine img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; display: block; }
+.dx-tpl__testo h3 { margin: var(--pa-space-s) 0 0; }
+.dx-tpl__testo .pa-caption { margin: 0 0 var(--pa-space-s); }
+.dx-tpl__testo ul { padding-left: var(--pa-space-m); color: var(--pa-fg-soft); font-size: 0.875rem; }
+.dx-tpl__sorgente { display: flex; gap: var(--pa-space-s); align-items: center; font-size: 0.8125rem;
+  color: var(--pa-fg-muted); padding-top: var(--pa-space-s); border-top: 1px solid var(--pa-border); }
+.dx-tpl__sorgente button { cursor: copy; padding: 2px var(--pa-space-xs); background: var(--pa-sabbia); line-height: 1.4; }
+.dx-tpl__sorgente code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--pa-fg); }
+@container (max-width: 760px) {
+  .dx-tpl { grid-template-columns: 1fr; }
+  .dx-tpl__anteprime { max-width: 260px; }
+}

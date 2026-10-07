@@ -16,6 +16,8 @@ discosta dal brandbook, vince il brandbook.
 - Asset: `public/brand/`. L'elenco è in `src/manifest.json`, da rigenerare quando
   si aggiungono file.
 - Le regole di sistema e le ricette di impaginato: `../DESIGN.md`.
+- I template (master Canva e modelli web): `src/template.ts`, anteprime in
+  `public/brand/template/<slug>-<n>.jpg`. Quando nasce un master nuovo, va aggiunto lì.
 
 ## Regole non negoziabili
 

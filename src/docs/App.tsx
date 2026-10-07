@@ -9,6 +9,7 @@ import { Asset } from './sections/Asset';
 import { Galleria } from './sections/Galleria';
 import { Componenti } from './sections/Componenti';
 import { Impaginati } from './sections/Impaginati';
+import { Template } from './sections/Template';
 
 const NAV = [
   { gruppo: 'Partire da qui', voci: [{ id: 'inizio', label: 'Come si usa', el: <Inizio /> }] },
@@ -18,13 +19,14 @@ const NAV = [
       { id: 'spazio', label: 'Spazio e griglia', el: <SpazioGriglia /> },
   ]},
   { gruppo: 'Marca', voci: [
-      { id: 'marchi', label: 'I quattro marchi', el: <Marchi /> },
+      { id: 'marchi', label: 'I marchi', el: <Marchi /> },
       { id: 'asset', label: 'Icone, illustrazioni, texture', el: <Asset /> },
       { id: 'galleria', label: 'Galleria', el: <Galleria /> },
   ]},
   { gruppo: 'Costruire', voci: [
       { id: 'componenti', label: 'Componenti', el: <Componenti /> },
       { id: 'impaginati', label: 'Ricette di impaginato', el: <Impaginati /> },
+      { id: 'template', label: 'Template', el: <Template /> },
   ]},
 ];
 
