@@ -45,8 +45,8 @@ export function Template() {
             <strong>Un master non si modifica: si duplica.</strong> In Canva il comando è
             «Crea una copia»; il nuovo esemplare si rinomina con marchio e prodotto
             («Meridoro — Fiberfeed Conigli»). I master Canva stanno nell’account
-            <strong> Studio Grafico</strong>: l’identificativo si copia con un clic e si incolla
-            nella ricerca di Canva.
+            <strong> Studio Grafico</strong>: il pulsante «Apri in Canva» porta al file, e
+            funziona per chi ha accesso a quell’account.
           </p>
         </div>
       </section>
@@ -89,6 +89,10 @@ export function Template() {
                     <button type="button" onClick={() => copia(t.sorgente)} title="Copia">
                       <code>{copiato === t.sorgente ? 'Copiato' : t.sorgente}</code>
                     </button>
+                    <a className="pa-btn pa-btn--secondary pa-btn--s dx-tpl__apri" href={t.link}
+                       target="_blank" rel="noopener noreferrer">
+                      {t.strumento === 'Canva' ? 'Apri in Canva' : 'Apri l’anteprima'}
+                    </a>
                   </div>
                 </div>
               </article>

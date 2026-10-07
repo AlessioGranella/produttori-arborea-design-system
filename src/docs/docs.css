@@ -183,3 +183,4 @@
   .dx-tpl { grid-template-columns: 1fr; }
   .dx-tpl__anteprime { max-width: 260px; }
 }
+.dx-tpl__apri { margin-left: auto; }

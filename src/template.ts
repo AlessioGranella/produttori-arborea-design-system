@@ -7,6 +7,7 @@ export type Template = {
   formato: string;
   strumento: 'Canva' | 'HTML → Elementor';
   sorgente: string;          // id del design Canva o percorso del file
+  link: string;              // apre il file: design Canva o anteprima online
   uso: string;
   regole: string[];
   produzione?: string;       // come si fa un nuovo esemplare
@@ -20,7 +21,7 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
       {
         slug: 'scheda-a5', pagine: 1, segmento: 'agrozoo',
         titolo: 'Scheda prodotto A5', formato: 'A5 · 1748 × 2480 px · 1 pagina',
-        strumento: 'Canva', sorgente: 'DAHUuSaBLGY',
+        strumento: 'Canva', sorgente: 'DAHUuSaBLGY', link: 'https://www.canva.com/d/tMSrsT39-UWT8Lj',
         uso: 'Un prodotto Meridoro: fieni, foraggi, mangimi, pellet, integratori.',
         regole: [
           'Testi tutti in campagna; oro solo per cornici, barre e banda vantaggi.',
@@ -33,7 +34,7 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
       {
         slug: 'scheda-linea', pagine: 2, segmento: 'agrozoo',
         titolo: 'Scheda linea A5', formato: 'A5 · più pagine',
-        strumento: 'Canva', sorgente: 'DAHVcvAKCvo',
+        strumento: 'Canva', sorgente: 'DAHVcvAKCvo', link: 'https://www.canva.com/d/K_0rTv7uzorGodm',
         uso: 'Una linea di più prodotti (es. miscele da cortile, Fiberfeed): introduzione più una scheda per tipologia.',
         regole: [
           'Prima pagina: presentazione della linea e delle tipologie a confronto.',
@@ -46,7 +47,7 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
       {
         slug: 'volantino-a5', pagine: 2, segmento: 'corporate',
         titolo: 'Volantino promo punto vendita', formato: 'A5 · fronte e retro',
-        strumento: 'Canva', sorgente: 'DAHWrq-vgMA',
+        strumento: 'Canva', sorgente: 'DAHWrq-vgMA', link: 'https://www.canva.com/d/dnQj0oiD3hLDKJC',
         uso: 'Le offerte quindicinali dello spaccio: fronte ortofrutta Primoverde, retro carni.',
         regole: [
           'Periodo di validità in testa, in maiuscolo, sempre visibile.',
@@ -65,7 +66,7 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
       {
         slug: 'caso-cliente', pagine: 7, segmento: 'agrozoo',
         titolo: 'Carosello caso cliente', formato: '4:5 · 1080 × 1350 · 7 slide',
-        strumento: 'Canva', sorgente: 'DAHBwbLeZaE',
+        strumento: 'Canva', sorgente: 'DAHBwbLeZaE', link: 'https://www.canva.com/d/YxhyaVd8d0leiS0',
         uso: 'I risultati di un’azienda socia o cliente seguita da Meridoro: produzione, fertilità, redditività.',
         regole: [
           'Slide 1: foto delle persone in stalla, bollino oro con nome dell’azienda e «Azienda socia» o «Azienda cliente».',
@@ -79,7 +80,7 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
       {
         slug: 'carosello-filiera', pagine: 7, segmento: 'agrozoo',
         titolo: 'Carosello di racconto', formato: '4:5 · 1080 × 1350 · 7 slide',
-        strumento: 'Canva', sorgente: 'DAHWH58wLTo',
+        strumento: 'Canva', sorgente: 'DAHWH58wLTo', link: 'https://www.canva.com/d/DDawycuK9Hbd26f',
         uso: 'Raccontare un processo o una filiera (qui la Filiera Foraggera) in sequenza.',
         regole: [
           'Fondi alternati oro e campagna, con la texture delle foglie in trasparenza.',
@@ -91,7 +92,7 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
       {
         slug: 'post-4x5', pagine: 1, segmento: 'ortofrutta',
         titolo: 'Post singolo di campagna', formato: '4:5 · 1080 × 1350',
-        strumento: 'Canva', sorgente: 'DAHUsFhPBDA',
+        strumento: 'Canva', sorgente: 'DAHUsFhPBDA', link: 'https://www.canva.com/d/ef7wdKE9qbCYwQr',
         uso: 'Il post di una campagna Primoverde («Cogli l’ottimo»): un prodotto, una frase.',
         regole: [
           'Fondo verde con il paesaggio illustrato delle campagne.',
@@ -103,7 +104,7 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
       {
         slug: 'avviso-storia', pagine: 1, segmento: 'corporate',
         titolo: 'Avviso alla clientela', formato: '9:16 · storia',
-        strumento: 'Canva', sorgente: 'DAG8aKYQ_8o',
+        strumento: 'Canva', sorgente: 'DAG8aKYQ_8o', link: 'https://www.canva.com/d/krEzWneKTtjhffp',
         uso: 'Chiusure, cambi d’orario, comunicazioni di servizio dei punti vendita.',
         regole: [
           'Fondo sabbia, titolo in pomodoro, testo in campagna.',
@@ -120,7 +121,7 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
       {
         slug: 'pagina-prodotto', pagine: 2, segmento: 'agrozoo',
         titolo: 'Pagina prodotti di marchio', formato: 'Pagina web · contenitore 1140 px',
-        strumento: 'HTML → Elementor', sorgente: 'Produttori Arborea/sito/',
+        strumento: 'HTML → Elementor', sorgente: 'Produttori Arborea/sito/', link: 'https://alessiogranella.github.io/produttori-arborea-pagine-prodotto/',
         uso: 'Il catalogo di un marchio sul sito (Meridoro, Primoverde): linee, schede prodotto, brochure.',
         regole: [
           'Hero a due colonne, fascia di quattro contatori, griglia di image box, fisarmonica per i dettagli.',
