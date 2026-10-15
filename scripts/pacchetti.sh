@@ -23,6 +23,10 @@ pacchetto font               font
 pacchetto texture            texture
 pacchetto paesaggi           paesaggi
 pacchetto soggetti           soggetti
+pacchetto packaging-quarta-gamma     packaging/quarta-gamma
+pacchetto packaging-linea-del-fresco packaging/linea-del-fresco
+pacchetto packaging-patate           packaging/patate
+pacchetto packaging-primoverde       packaging
 pacchetto produttori-arborea-asset icone loghi texture illustrazioni paesaggi soggetti font
 
 echo "archivi pronti in $OUT"

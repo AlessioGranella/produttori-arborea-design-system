@@ -184,3 +184,20 @@
   .dx-tpl__anteprime { max-width: 260px; }
 }
 .dx-tpl__apri { margin-left: auto; }
+
+/* -------------------------------------------------------------- PACKAGING */
+.dx-pack { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--pa-space-m); }
+.dx-pack__voce { margin: 0; display: grid; gap: var(--pa-space-xs); align-content: start; }
+.dx-pack__img {
+  display: block; width: 100%; padding: var(--pa-space-m); border: 1px solid var(--pa-border);
+  border-radius: var(--pa-radius-m); background: var(--pa-bianco); cursor: zoom-in; line-height: 0;
+}
+.dx-pack__img:hover { border-color: var(--pa-accent-border); }
+.dx-pack__img img { width: 100%; height: 200px; object-fit: contain; display: block; }
+.dx-pack__voce figcaption { display: grid; gap: 2px; font-size: 0.875rem; }
+.dx-pack__voce .pa-caption { margin: 0; }
+.dx-pack__azioni { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.dx-pack__azioni button.dx-dl__link { border: 0; cursor: pointer; font-family: inherit; }
+.dx-pack__azioni button.dx-dl__link:disabled { cursor: progress; opacity: .6; }
+/* i mockup scontornati hanno ombre scure: sul velo blu sparirebbero */
+.dx-lightbox .dx-pack__grande { background: var(--pa-sabbia); padding: var(--pa-space-l); }

@@ -7,6 +7,7 @@ import { SpazioGriglia } from './sections/SpazioGriglia';
 import { Marchi } from './sections/Marchi';
 import { Asset } from './sections/Asset';
 import { Galleria } from './sections/Galleria';
+import { Packaging } from './sections/Packaging';
 import { Componenti } from './sections/Componenti';
 import { Impaginati } from './sections/Impaginati';
 import { Template } from './sections/Template';
@@ -21,6 +22,7 @@ const NAV = [
   { gruppo: 'Marca', voci: [
       { id: 'marchi', label: 'I marchi', el: <Marchi /> },
       { id: 'asset', label: 'Icone, illustrazioni, texture', el: <Asset /> },
+      { id: 'packaging', label: 'Packaging', el: <Packaging /> },
       { id: 'galleria', label: 'Galleria', el: <Galleria /> },
   ]},
   { gruppo: 'Costruire', voci: [
