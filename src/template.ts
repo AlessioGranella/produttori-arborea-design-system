@@ -102,6 +102,20 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
         ],
       },
       {
+        slug: 'post-prodotto', pagine: 2, segmento: 'ortofrutta',
+        titolo: 'Post prodotto', formato: '4:5 · 1080 × 1350',
+        strumento: 'Canva', sorgente: 'DAHYKB_R-6w', link: 'https://www.canva.com/d/qJzOsH1XlIU5hth',
+        uso: 'Un prodotto Primoverde nel suo pack, ambientato: patate in cucina, insalate in cucina, angurie in spiaggia.',
+        regole: [
+          'Foto a tutta pagina: il pack al centro della metà alta, alto circa metà della tela, sfondo sfocato.',
+          'Sfumatura verde campagna #00492A da trasparente a y 620 fino al pieno a y 1230.',
+          'Titolo in Fredoka Bold bianco, maiuscolo, centrato, su 2 o 3 righe; l’ultima finisce 115 px sopra il bordo.',
+          'Il testo sta sempre sul verde, mai sulla foto. Niente logo: il marchio lo porta il pack.',
+          'Due famiglie di testo: prodotto + promessa («Doppio ciclo, doppia bontà») o claim di marca.',
+        ],
+        produzione: 'crea_post.py in Primo Verde/Templates/Post prodotto/ fa PNG e PDF a livelli (sempre PDF, mai PPTX). In Canva si duplica il post e si cambiano foto e titolo; il secondo esempio è DAHYKI7-DK0 (patate).',
+      },
+      {
         slug: 'avviso-storia', pagine: 1, segmento: 'corporate',
         titolo: 'Avviso alla clientela', formato: '9:16 · storia',
         strumento: 'Canva', sorgente: 'DAG8aKYQ_8o', link: 'https://www.canva.com/d/krEzWneKTtjhffp',
