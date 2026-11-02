@@ -16,7 +16,7 @@ export type Template = {
 export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
   {
     gruppo: 'Stampa',
-    testo: 'Schede e volantini che escono dal mangimificio e dai punti vendita. Formato A5 a 300 dpi, testi editabili, nessun elemento bloccato.',
+    testo: 'Schede e volantini che escono dal mangimificio e dai punti vendita. Formato A5 o A4 a 300 dpi, testi editabili, nessun elemento bloccato.',
     voci: [
       {
         slug: 'scheda-a5', pagine: 1, segmento: 'agrozoo',
@@ -43,6 +43,19 @@ export const famiglie: { gruppo: string; testo: string; voci: Template[] }[] = [
           'Ogni testo riusa un elemento esistente della pagina: un testo aggiunto nasce nel font di default.',
         ],
         produzione: 'Master da non toccare: si lavora sempre su una copia. Anche questo passa dalla skill.',
+      },
+      {
+        slug: 'scheda-linea-a4', pagine: 2, segmento: 'agrozoo',
+        titolo: 'Scheda linea A4', formato: 'A4 · 2480 × 3508 px · fronte e retro',
+        strumento: 'Canva', sorgente: 'DAHZyRSYwJI', link: 'https://www.canva.com/d/wTyxcKTFpUsDCOM',
+        uso: 'La scheda linea quando serve il foglio A4 da stampare: stessa impaginazione dell’A5, ingrandita del 41,6%.',
+        regole: [
+          'Stessa griglia, stessi colori e stesse regole della scheda linea A5: cambia solo la scala.',
+          'Corpi in pixel della tela A4: titoli di sezione 79, titoli delle card 62, testo 48, tabelle 45, piede 38.',
+          'Fronte: presentazione e punti di forza. Retro: ingredienti, valori, formato, istruzioni e piede con i contatti.',
+          'Ogni testo riusa un elemento esistente della pagina: un testo aggiunto nasce nel font di default.',
+        ],
+        produzione: 'Nato dal resize Canva del master A5 e riallineato a mano sul registro A5. Si duplica, non si modifica.',
       },
       {
         slug: 'volantino-a5', pagine: 2, segmento: 'corporate',
